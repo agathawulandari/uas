@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-    <script src="../assets/js/color-modes.js"></script>
+    <script src="assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
     .bd-placeholder-img {
@@ -100,8 +100,12 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="pricing.css" rel="stylesheet">
+    <link href="pricing/pricing.css" rel="stylesheet">
 </head>
+
+<?php 
+	include('navbar.php');
+?>
 
 <body>
 
@@ -296,7 +300,7 @@
             </div>
         </footer>
     </div>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

@@ -22,7 +22,7 @@
                             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=harga">Harga</a>
+                            <a class="nav-link" href="harga.php">Harga</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -40,7 +40,8 @@
     <main role="main">
 
     </main>
-    <div class="mt-5 py-5">
+    <div class="">
+    <!-- mt-5 py-5 -->
         <div class="container">
             <?php 
             if (isset($_GET['page'])) {
