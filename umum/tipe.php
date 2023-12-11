@@ -15,10 +15,10 @@
                     <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/jam</small>
                     </h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
+                        <li>Ukuran lapangan 13,4 m x 6,1 m</li>
+                        <li>untuk tunggal dan ganda</li>
+                        <li>terdapat garis-garis penanda lapangan</li>
+                        <li>tidak memakai alas lapangan</li>
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-primary">Pesan sekarang</button>
                 </div>
@@ -34,10 +34,10 @@
                             class="text-body-secondary fw-light">/jam</small>
                     </h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>20 users included</li>
-                        <li>10 GB of storage</li>
-                        <li>Priority email support</li>
-                        <li>Help center access</li>
+                        <li>Ukuran lapangan 13,4 m x 6,1 m</li>
+                        <li>untuk tunggal dan ganda</li>
+                        <li>terdapat garis-garis penanda lapangan</li>
+                        <li>memakai karpet sebagai alas lapangan</li>
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-primary">Pesan sekarang</button>
                 </div>
@@ -53,10 +53,10 @@
                             class="text-body-secondary fw-light">/jam</small>
                     </h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
+                        <li>Ukuran lapangan 13,4 m x 6,1 m</li>
+                        <li>memakai karpet sebagai alas lapangan</li>
+                        <li>memakai pencahayaan yang lebih baik</li>
+                        <li>kursi-kursi khusus yang nyamanan</li>
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-primary">Pesan Sekarang</button>
                 </div>
