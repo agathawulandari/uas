@@ -8,10 +8,10 @@
                     <h3> Lokasi </h3>
                 </div>
                 <div class="card-body">
-                    <p>Jl. Merdeka No. 123, Cipta Karya Kota Bahagia Indonesia 12345</p>
+                    <p>Jl. Merdeka No. 123</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-link text-dark">Detail</a>
+                    <a href="https://www.google.com/maps" class="btn btn-link text-dark">Detail</a>
                 </div>
             </div> 
         </div>
@@ -27,7 +27,7 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-link text-dark">Detail</a>
+                    <a href="https://wa.me/6282169913673" class="btn btn-link text-dark">Hubungi</a>
                 </div>
             </div> 
         </div>
@@ -37,8 +37,10 @@
                     <h3> Buka </h3>
                 </div>
                 <div class="card-body">
-                    <p>08.00 - 22.00</p>
-                    <p>Setiap Hari</p>
+                    <p>
+                        08.00 - 22.00
+                        (Setiap Hari)
+                    </p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-link text-dark">Detail</a>
@@ -53,9 +55,9 @@
                         <h3> Buka </h3>
                     </div>
                     <div class="card-body">
-                        <img src="../img/ig.png" alt="ig" width="50">
-                        <img src="../img/fb.png" alt="ig" width="30">
-                        <img src="../img/x.png" alt="ig" width="30">
+                        <a href="https://www.instagram.com/"><img src="../img/ig.png" alt="ig" width="35"></a>
+                        <a href="https://www.facebook.com/"><img src="../img/fb.png" alt="fb" width="30"></a>
+                        <a href="https://twitter.com/?lang=en"><img src="../img/x.png" alt="twitter" width="30"></a>
                     </div>
                     <div class="card-footer">
                         <a href="#" class="btn btn-link text-dark">Detail</a>
