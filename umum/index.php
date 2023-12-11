@@ -127,7 +127,10 @@
                                 <a class="nav-link" href="?page=reservasi">Reservasi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                <a class="nav-link" href="?page=contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=akun">Akun</a>
                             </li>
                         </ul>
                     </div>
@@ -143,14 +146,20 @@
                                 switch ($_GET['page']) {
                                     case 'tipe':
                                         include('tipe.php');
-                                        break;
+                                    break;
                                     case 'reservasi':
                                         include('reservasi.php');
-                                        break;
+                                    break;
+                                    case 'contact':
+                                        include('contact.php');
+                                    break;
+                                    case 'akun':
+                                        include('akun.php');
+                                    break;
                                     default:
                                         'home';
                                         include('home.php');
-                                        break;
+                                    break;
                                 }
                             }
                         ?>
