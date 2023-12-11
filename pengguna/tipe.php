@@ -31,7 +31,8 @@ include('../koneksi.php');
                         <li>memakai pencahayaan yang lebih baik</li>
                         <li>kursi-kursi khusus yang nyamanan</li> -->
                     </ul>
-                    <button type="button" class="w-100 btn btn-lg btn-primary">Pesan Sekarang</button>
+                    <a href="lapangan.php?=<?php echo $d ['id_kategori'] ?>"><button type="button"
+                            class="w-100 btn btn-lg btn-primary">Pesan</button></a>
                 </div>
             </div>
         </div>
