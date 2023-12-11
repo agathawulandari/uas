@@ -102,23 +102,22 @@
                         </div> -->
                     </div>
                     <div class="col-12">
-                        <label for="address" class="form-label">Tanggal Booking</label>
-                        <input type="text" class="form-control" id="address" placeholder="masuk tanggal booking"
-                            required>
+                        <label for="date" class="form-label">Tanggal Booking</label>
+                        <input type="date" class="form-control" id="date" placeholder="masuk tanggal booking" required>
                         <!-- <div class="invalid-feedback">
                             Masukan alamat anda
                         </div> -->
                     </div>
                     <div class="col-12">
-                        <label for="address" class="form-label">Jam Booking</label>
-                        <input type="text" class="form-control" id="address" placeholder="masukan jam booking" required>
+                        <label for="time" class="form-label">Jam Booking</label>
+                        <input type="time" class="form-control" id="time" placeholder="masukan jam booking" required>
                         <!-- <div class="invalid-feedback">
                             Masukan alamat anda
                         </div> -->
                     </div>
                     <div class="col-12">
-                        <label for="address" class="form-label">Durasi</label>
-                        <input type="text" class="form-control" id="address" placeholder="masukan durasi bermain"
+                        <label for="durasi" class="form-label">Durasi</label>
+                        <input type="time" class="form-control" id="durasi" placeholder="masukan durasi bermain"
                             required>
                         <!-- <div class="invalid-feedback">
                             Masukan alamat anda
