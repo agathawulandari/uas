@@ -121,6 +121,15 @@
                                 <a class="nav-link" href="?page=home">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="?page=tipe">Tipe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=reservasi">Reservasi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="?page=akun">Akun</a>
                             </li>
                         </ul>
@@ -135,10 +144,19 @@
                         <?php 
                             if (isset($_GET['page'])) {
                                 switch ($_GET['page']) {
+                                    case 'tipe':
+                                        include('tipe.php');
+                                    break;
+                                    case 'reservasi':
+                                        include('reservasi.php');
+                                    break;
+                                    case 'contact':
+                                        include('contact.php');
+                                    break;
                                     case 'akun':
                                         include('akun.php');
                                     break;
-                                    case 'home':
+                                    default:
                                         include('home.php');
                                     break;
                                 }

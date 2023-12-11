@@ -1,3 +1,3 @@
 <?php 
-    header('location:umum/index.php?page=home')
+    header('location:umum/index.php?page=akun')
 ?>
