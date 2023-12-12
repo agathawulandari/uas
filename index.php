@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["username"] = true;
 
 if(isset($_SESSION['username']) && ($_SESSION['tipe']) == 1) {
     header('location:pemilik/index.php?page=home');
