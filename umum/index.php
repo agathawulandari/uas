@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+    if (isset($_SESSION["username"])){ 
+        include("../koneksi.php");
+
+    $username = $_SESSION["username"];
+    $query = "SELECT * FROM pengguna WHERE username = '$username'";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_array($result);
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -121,6 +132,15 @@
                                 <a class="nav-link" href="?page=home">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="?page=tipe">Tipe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=reservasi">Reservasi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="?page=akun">Akun</a>
                             </li>
                         </ul>
@@ -131,20 +151,30 @@
 
         <main role="main">
                 <div class="">
-                    <!-- <div class="container"> -->
-                        <?php 
-                            if (isset($_GET['page'])) {
-                                switch ($_GET['page']) {
-                                    case 'akun':
-                                        include('akun.php');
-                                    break;
-                                    case 'home':
-                                        include('home.php');
-                                    break;
-                                }
+                    <?php 
+                        if (isset($_GET['page'])) {
+                            switch ($_GET['page']) {
+                                case 'tipe':
+                                    include('tipe.php');
+                                break;
+                                case 'reservasi':
+                                    include('reservasi.php');
+                                break;
+                                case 'contact':
+                                    include('contact.php');
+                                break;
+                                case 'akun':
+                                    include('akun.php');
+                                break;
+                                case 'tentang':
+                                    include('tentang.php');
+                                break;
+                                case 'home':
+                                    include('home.php');
+                                break;
                             }
-                        ?>
-                    <!-- </div> -->
+                        }
+                    ?>
                 </div>
 
             </main>
@@ -157,3 +187,7 @@
         </footer>
     </body>
 </html>
+<?php } else {
+    header('location:../umum/index.php?page=tentang');
+    }  
+?>

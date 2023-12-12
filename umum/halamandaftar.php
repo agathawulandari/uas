@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
     <div class="row">
-        <h2 class="text-center">Masuk/Login</h2>
+        <h2 class="text-center">Masuk/Daftar</h2>
         <form action="register.php" method="post">
             <div class="form-group mb-3">
                 <label for="nama_pengguna">Nama Pengguna   :</label>
@@ -32,8 +32,10 @@
                     <option value="3">Pengguna</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary mb-3" name="register">Login</button>
+            <button type="submit" class="btn btn-primary mb-3" name="register">Daftar</button>
             <button type="reset" class="btn btn-secondary mb-3">Reset</button>
         </form>
+        <h6 class="text-center">Sudah Punya Akun?</h6>
+        <h6 class="text-center"><a href="?page=halamanmasuk">Klik disini untuk masuk</a></h6>
     </div>
 </div>

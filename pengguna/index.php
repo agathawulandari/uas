@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+    if (isset($_SESSION["username"])){ 
+        include("../koneksi.php");
+
+    $username = $_SESSION["username"];
+    $query = "SELECT * FROM pengguna WHERE username = '$username'";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_array($result);
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -103,77 +114,80 @@
     <link href="../carousel/carousel.css" rel="stylesheet">
     <link href="../pricing/pricing.css" rel="stylesheet">
     <link href="../checkout/checkout.css" rel="stylesheet">
-    <link href="../lapangan/lapangan.css" rel="stylesheet">
 </head>
 
 
-<body>
+    <body>
     <header data-bs-theme="dark">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="?page=home">Badminton</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=tipe">Tipe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=reservasi">Reservasi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=akun">Akun</a>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="?page=home">Badminton</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=tipe">Tipe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=reservasi">Reservasi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=akun">Akun</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
-    <main role="main">
-        <div class="">
-            <!-- <div class="container"> -->
-            <?php 
-                            if (isset($_GET['page'])) {
-                                switch ($_GET['page']) {
-                                    case 'tipe':
-                                        include('tipe.php');
-                                    break;
-                                    case 'reservasi':
-                                        include('reservasi.php');
-                                    break;
-                                    case 'contact':
-                                        include('contact.php');
-                                    break;
-                                    case 'akun':
-                                        include('akun.php');
-                                    break;
-                                    default:
-                                        include('home.php');
-                                    break;
-                                }
+        <main role="main">
+                <div class="">
+                    <?php 
+                        if (isset($_GET['page'])) {
+                            switch ($_GET['page']) {
+                                case 'tipe':
+                                    include('tipe.php');
+                                break;
+                                case 'reservasi':
+                                    include('reservasi.php');
+                                break;
+                                case 'contact':
+                                    include('contact.php');
+                                break;
+                                case 'akun':
+                                    include('akun.php');
+                                break;
+                                case 'tentang':
+                                    include('tentang.php');
+                                break;
+                                case 'home':
+                                    include('home.php');
+                                break;
                             }
-                        ?>
-            <!-- </div> -->
-        </div>
+                        }
+                    ?>
+                </div>
 
-    </main>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+            </main>
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- FOOTER -->
-    <footer class="container">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
-</body>
-
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-end"><a href="#">Back to top</a></p>
+            <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+    </body>
 </html>
+<?php } else {
+    header('location:../umum/index.php?page=tentang');
+    }  
+?>
