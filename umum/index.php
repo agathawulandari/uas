@@ -121,13 +121,17 @@
                             <a class="nav-link" href="?page=home">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="?page=contact">Contact</a>
+                        </li>
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="?page=halamandaftar">Daftar</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="?page=halamanmasuk">Masuk</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
+                <a href="?page=halamanmasuk" class="btn btn-primary">Masuk/Daftar</a>
             </div>
         </nav>
     </header>
@@ -145,6 +149,9 @@
                                 break;
                                 case 'home':
                                     include('home.php');
+                                break;
+                                case 'contact':
+                                    include('contact.php');
                                 break;
                             }
                         }

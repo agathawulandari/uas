@@ -6,14 +6,14 @@
     if(isset($_POST["login"])) {
         $_SESSION["username"] = $_POST["username"];
         $_SESSION["password"] = $_POST["password"];
-        $_SESSION["tipe"] = $_POST["tipe"];
 
-        $cekdata = mysqli_query($koneksi,"SELECT * FROM pengguna WHERE username = '".($_POST['username'])."' AND password = '".$_POST['password']."' AND tipe_akses ='".$_POST['tipe']."'");
+        $cekdata = mysqli_query($koneksi,"SELECT * FROM pengguna WHERE username = '".($_POST['username'])."' AND password = '".$_POST['password']."'");
+        $row = mysqli_fetch_array($cekdata);
         $periksadata = mysqli_num_rows($cekdata);
         if($periksadata>0){
-            if($_POST["tipe"] == 1 ){
+            if($row['tipe_akses'] == 1 ){
                 header('location:../pemilik/index.php?page=home');
-            } else if($_POST["tipe"] == 2 ){
+            } else if($row['tipe_akses'] == 2 ){
                 header('location:../karyawan/index.php?page=home');
             } else {
                 header('location:../pengguna/index.php?page=home');

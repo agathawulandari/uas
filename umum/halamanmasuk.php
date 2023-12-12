@@ -13,15 +13,6 @@
                 <label for="password">Password   :</label>
                 <input type="password" name="password" class="form-control" placeholder="Isikan Password">
             </div>
-            <div class="form-group mb-3">
-                <label>Tentukan Tipe   :</label>
-                <select name="tipe" class="form-control">
-                    <option selected disabled>--Pilih Tipe--</option>
-                    <option value="1">Pemilik</option>
-                    <option value="2">Karyawan</option>
-                    <option value="3">Pengguna</option>
-                </select>
-            </div>
             <button type="submit" class="btn btn-primary" name="login">Login</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </form>

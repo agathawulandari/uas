@@ -23,15 +23,6 @@
                 <label for="telp">Telpon   :</label>
                 <input type="text" name="telp" class="form-control" placeholder="Isikan Nomor Telpon">
             </div>
-            <div class="form-group mb-3">
-                <label>Tentukan Tipe   :</label>
-                <select name="tipe" class="form-control">
-                    <option selected disabled>--Pilih Tipe--</option>
-                    <option value="1">Pemilik</option>
-                    <option value="2">Karyawan</option>
-                    <option value="3">Pengguna</option>
-                </select>
-            </div>
             <button type="submit" class="btn btn-primary mb-3" name="register">Daftar</button>
             <button type="reset" class="btn btn-secondary mb-3">Reset</button>
         </form>
