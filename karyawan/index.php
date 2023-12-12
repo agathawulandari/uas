@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    if (isset($_SESSION["username"])){ 
+    $_SESSION["username"] = true;
+    include("../koneksi.php");
+
+    $username = $_SESSION["username"];
+    $query = "SELECT * FROM pengguna WHERE username = '$username'";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_array($result);
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -175,3 +187,8 @@
         </footer>
     </body>
 </html>
+<?php } else {
+    header('location:../umum/index.php?page=home');
+    exit();
+    }  
+?>

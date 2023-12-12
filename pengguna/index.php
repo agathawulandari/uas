@@ -146,6 +146,7 @@
                         </li>
                     </ul>
                 </div>
+                <a href="?page=logout" class="btn btn-danger">Keluar</a>
             </div>
         </nav>
     </header>
@@ -167,11 +168,11 @@
                                 case 'akun':
                                     include('akun.php');
                                 break;
-                                case 'tentang':
-                                    include('tentang.php');
-                                break;
                                 case 'home':
                                     include('home.php');
+                                break;
+                                case 'logout':
+                                    include('../umum/logout.php');
                                 break;
                             }
                         }
@@ -190,7 +191,7 @@
 
 </html>
 <?php } else {
-    header('location:../umum/index.php?page=tentang');
+    header('location:../umum/index.php?page=home');
     exit();
     }  
 ?>
