@@ -22,9 +22,11 @@ if (isset($_POST["register"])) {
         // Check if the query was successful
         if ($result !== false) {
             header('location:../umum/index.php?page=halamanmasuk');
+            exit();
         } else {
             // Handle query failure
             header('location:../umum/index.php?page=halamandaftar');
+            exit();
         }
     }
 }

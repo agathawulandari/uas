@@ -189,5 +189,6 @@
 </html>
 <?php } else {
     header('location:../umum/index.php?page=tentang');
+    exit();
     }  
 ?>

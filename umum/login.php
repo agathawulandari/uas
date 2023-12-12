@@ -13,13 +13,17 @@
         if($periksadata>0){
             if($_POST["tipe"] == 1 ){
                 header('location:../pemilik/index.php?page=home');
+                exit(); 
             } else if($_POST["tipe"] == 2 ){
                 header('location:../karyawan/index.php?page=home');
+                exit(); 
             } else {
                 header('location:../pengguna/index.php?page=home');
+                exit();
             }
         } else {
             header('location:../umum/index.php?page=halamanmasuk');
+            exit();
         }
     }
 ?>
