@@ -121,16 +121,10 @@
                             <a class="nav-link" href="?page=home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=tipe">Tipe</a>
+                            <a class="nav-link" href="?page=halamandaftar">Daftar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=reservasi">Reservasi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?page=akun">Akun</a>
+                            <a class="nav-link" href="?page=halamanmasuk">Masuk</a>
                         </li>
                     </ul>
                 </div>
@@ -143,20 +137,11 @@
             <?php 
                         if (isset($_GET['page'])) {
                             switch ($_GET['page']) {
-                                case 'tipe':
-                                    include('tipe.php');
+                                case 'halamandaftar':
+                                    include('halamandaftar.php');
                                 break;
-                                case 'reservasi':
-                                    include('reservasi.php');
-                                break;
-                                case 'contact':
-                                    include('contact.php');
-                                break;
-                                case 'akun':
-                                    include('akun.php');
-                                break;
-                                case 'tentang':
-                                    include('tentang.php');
+                                case 'halamanmasuk':
+                                    include('halamanmasuk.php');
                                 break;
                                 case 'home':
                                     include('home.php');

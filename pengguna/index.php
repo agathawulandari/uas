@@ -1,10 +1,10 @@
 <?php 
     session_start();
     if (isset($_SESSION["username"])){ 
-        include("../koneksi.php");
+    $_SESSION["username"] = true;
+    include("../koneksi.php");
 
     $username = $_SESSION["username"];
-    $_SESSION["username"] = true;
     $query = "SELECT * FROM pengguna WHERE username = '$username'";
     $result = mysqli_query($koneksi, $query);
     $row = mysqli_fetch_array($result);
@@ -191,5 +191,6 @@
 </html>
 <?php } else {
     header('location:../umum/index.php?page=tentang');
+    exit();
     }  
 ?>
