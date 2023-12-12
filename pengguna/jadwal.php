@@ -10,13 +10,9 @@
         <td>No</td>
         <td>Nama Pemesan</td>
         <td>Nomor Lapangan</td>
-        <td>ID Pengguna</td>
         <td>Tanggal Booking</td>
         <td>Jam Booking</td>
         <td>Durasi</td>
     </tr>
 </table>
 </div>
-<?php 
- include('index.php');
- ?>

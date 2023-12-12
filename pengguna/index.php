@@ -171,6 +171,12 @@
                                 case 'home':
                                     include('home.php');
                                 break;
+                                case 'jadwal':
+                                    include('jadwal.php');
+                                break;
+                                case 'pesan':
+                                    include('lapangan.php');
+                                break;
                                 case 'logout':
                                     include('../umum/logout.php');
                                 break;

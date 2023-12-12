@@ -34,11 +34,11 @@ include('../koneksi.php');
                     <div class="container text-center">
                         <div class="row g-2">
                             <div class="col-6">
-                                <a href="jadwal.php?=<?php echo $d ['id_kategori'] ?>"><button type="button"
+                                <a href="?page=jadwal?<?php echo $d ['id_kategori'] ?>"><button type="button"
                                         class="w-100 btn btn-lg btn-outline-secondary">Jadwal</button></a>
                             </div>
                             <div class="col-6">
-                                <a href="lapangan.php?=<?php echo $d ['id_kategori'] ?>"><button type="button"
+                                <a href="?page=pesan?<?php echo $d ['id_kategori'] ?>"><button type="button"
                                         class="w-100 btn btn-lg btn-primary">Pesan</button></a>
                             </div>
 
