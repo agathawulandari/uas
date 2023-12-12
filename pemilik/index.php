@@ -146,6 +146,7 @@
                             </li>
                         </ul>
                     </div>
+                    <a href="?page=logout" class="btn btn-danger">Keluar</a>
                 </div>
             </nav>
         </header>
@@ -167,6 +168,9 @@
                                     break;
                                     case 'akun':
                                         include('akun.php');
+                                    break;
+                                    case 'logout':
+                                        include('../umum/logout.php');
                                     break;
                                     default:
                                         include('home.php');
