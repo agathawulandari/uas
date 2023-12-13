@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if (isset($_SESSION["username"])){ 
-    $_SESSION["username"] = true;
+    // $_SESSION["username"] = true;
     include("../koneksi.php");
 
     $username = $_SESSION["username"];
@@ -133,13 +133,13 @@
                                 <a class="nav-link" href="?page=home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=tipe">Tipe</a>
+                                <a class="nav-link" href="?page=akun">Data Pemesanan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=reservasi">Reservasi</a>
+                                <a class="nav-link" href="?page=akun">Data Barang</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=contact">Contact</a>
+                                <a class="nav-link" href="?page=data-pengguna">Data Pengguna</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=akun">Akun</a>
@@ -157,17 +157,17 @@
                         <?php 
                             if (isset($_GET['page'])) {
                                 switch ($_GET['page']) {
-                                    case 'tipe':
-                                        include('tipe.php');
-                                    break;
-                                    case 'reservasi':
-                                        include('reservasi.php');
-                                    break;
-                                    case 'contact':
-                                        include('contact.php');
-                                    break;
                                     case 'akun':
                                         include('akun.php');
+                                    break;
+                                    case 'data-pengguna':
+                                        include('data-pengguna.php');
+                                    break;
+                                    case 'tambah-pengguna':
+                                        include('tambah-pengguna.php');
+                                    break;
+                                    case 'perbarui-pengguna':
+                                        include('perbarui-pengguna.php');
                                     break;
                                     case 'logout':
                                         include('../umum/logout.php');
