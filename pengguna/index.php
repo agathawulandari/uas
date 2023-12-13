@@ -173,8 +173,11 @@
                                 case 'jadwal':
                                     include('jadwal.php');
                                 break;
-                                case 'pesan':
+                                case 'lapangan':
                                     include('lapangan.php');
+                                break;
+                                case 'pesan':
+                                    include('pesan_lapangan.php');
                                 break;
                                 case 'logout':
                                     include('../umum/logout.php');
