@@ -153,34 +153,22 @@
 
         <main role="main">
                 <div class="">
-                    <!-- <div class="container"> -->
                         <?php 
-                            if (isset($_GET['page'])) {
-                                switch ($_GET['page']) {
-                                    case 'akun':
-                                        include('akun.php');
-                                    break;
-                                    case 'data-pengguna':
-                                        include('data-pengguna.php');
-                                    break;
-                                    case 'tambah-pengguna':
-                                        include('tambah-pengguna.php');
-                                    break;
-                                    case 'perbarui-pengguna':
-                                        include('perbarui-pengguna.php');
-                                    break;
-                                    case 'logout':
-                                        include('../umum/logout.php');
-                                    break;
-                                    default:
-                                        include('home.php');
-                                    break;
-                                }
-                            }
-                        ?>
-                    <!-- </div> -->
-                </div>
+                            $page = isset($_GET['page']) ? $_GET['page'] : 'default';
 
+                            $pages = [
+                                'akun' => 'akun.php',
+                                'data-pengguna' => 'data-pengguna/data-pengguna.php',
+                                'tambah-pengguna' => 'data-pengguna/tambah-pengguna.php',
+                                'perbarui-pengguna' => 'data-pengguna/perbarui-pengguna.php',
+                                'hapus-pengguna' => 'data-pengguna/hapus-pengguna.php',
+                                'logout' => '../umum/logout.php',
+                                'default' => 'home.php',
+                            ];
+
+                            include(isset($pages[$page]) ? $pages[$page] : $pages['default']);
+                        ?>
+                </div>
             </main>
         <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

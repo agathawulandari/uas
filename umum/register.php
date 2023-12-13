@@ -5,7 +5,7 @@ if (isset($_POST["register"])) {
     $nama_pengguna = $_POST["nama_pengguna"];
     $username = $_POST["username"];
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
     $telp = $_POST["telp"];
     $tipe = 3;
 
@@ -19,6 +19,7 @@ if (isset($_POST["register"])) {
 
         if ($result !== false) {
             header('location:../umum/index.php?page=halamanmasuk');
+            exit();
         } else {
             // Handle query failure
             header('location:../umum/index.php?page=halamandaftar');

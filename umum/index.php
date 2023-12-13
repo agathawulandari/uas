@@ -123,15 +123,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="?page=contact">Contact</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="?page=halamandaftar">Daftar</a>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="?page=halamanmasuk">Masuk</a>
-                        </li> -->
                     </ul>
                 </div>
-                <a href="?page=halamanmasuk" class="btn btn-primary">Masuk/Daftar</a>
+                <a href="?page=halamanmasuk" class="btn btn-primary me-2">Masuk</a>
+                <a href="?page=halamandaftar" class="btn btn-secondary">Daftar</a>
             </div>
         </nav>
     </header>

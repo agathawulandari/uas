@@ -1,6 +1,6 @@
 <div class="container">
     <div class="py-5 text-center">
-        <h2>Daftar</h2>
+        <h2>Masuk</h2>
     </div>
 
     <div class="row">

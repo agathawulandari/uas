@@ -1,7 +1,23 @@
 <h2 class="text-center mt-5 mb-5">Data Pengguna</h2>
 
 <div class="container mb-5">
+
+    <?php 
+        if (isset($_SESSION['alertClass']) && isset($_SESSION['message'])) {
+            $alertClass = $_SESSION['alertClass'];
+            $message = $_SESSION['message'];
+        
+            echo '<div class="alert ' . $alertClass . ' alert-dismissible fade show" role="alert">
+                    ' . $message . '
+                  </div>';
+            
+            unset($_SESSION['alertClass']);
+            unset($_SESSION['message']);
+        }
+    ?>
+
     <table class="table table-bordered">
+        <a href="?page=tambah-pengguna" class="btn btn-primary mb-2">Tambah Pengguna</a>
         <thead class="text-center">
             <tr>
                 <th>#</th>
@@ -29,8 +45,8 @@
                 <td><?= $tabel['email']?></td>
                 <td><?= $tabel['telp']?></td>
                 <td><?= $tabel['alamat']?></td>
-                <td class="text-center"><a href="?page=perbarui-pengguna&user=<?php echo $tabel['username']?>" class="btn btn-sm btn-primary">Perbarui</a></a></td>
-                <td class="text-center"><a href="" class="btn btn-sm btn-danger">Hapus</a></a></td>
+                <td class="text-center"><a href="?page=perbarui-pengguna&user=<?php echo $tabel['id_pengguna']?>" class="btn btn-sm btn-warning">Perbarui</a></a></td>
+                <td class="text-center"><a href="?page=hapus-pengguna&user=<?php echo $tabel['id_pengguna']?>" class="btn btn-sm btn-danger">Hapus</a></a></td>
             </tr>
         </tbody>
         <?php }?>
