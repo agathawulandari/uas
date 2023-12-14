@@ -27,7 +27,7 @@
 
             <div class="form-group">
                 <label>Nama Karyawan</label>
-                <input type="hidden" name="id_pengguna" value="<?php echo $tabel['id_pengguna'];?>">
+                <input type="hidden" name="id_pengguna" value="<?php echo $d['id_pengguna'];?>">
                 <input type="text" name="nama_pengguna" class="form-control mt-2" required placeholder="Nama Karyawan" value="<?php echo $d['nama_pengguna'] ??null;  ?>" >
             </div>
             <div class="form-group">
