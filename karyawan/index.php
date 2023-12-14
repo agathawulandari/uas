@@ -133,7 +133,10 @@
                                 <a class="nav-link" href="?page=home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=akun">Data Pemesanan</a>
+                                <a class="nav-link" href="?page=jenis-lapangan">Tambah Pemesanan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?page=data-pesanan">Data Pemesanan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=akun">Data Barang</a>
@@ -162,6 +165,12 @@
                                 'tambah-pengguna' => 'data-pengguna/tambah-pengguna.php',
                                 'perbarui-pengguna' => 'data-pengguna/perbarui-pengguna.php',
                                 'hapus-pengguna' => 'data-pengguna/hapus-pengguna.php',
+                                'data-pesanan' => 'data-pemesanan/data-pesanan.php',
+                                'tambah-pesanan' => 'data-pemesanan/tambah-pesanan.php',
+                                'perbarui-pesanan' => 'data-pemesanan/perbarui-pesanan.php',
+                                'hapus-pesanan' => 'data-pengguna/hapus-pemesanan.php',
+                                'jenis-lapangan' => 'data-pemesanan/jenis-lapangan.php',
+                                'lapangan' => 'data-pemesanan/nomor-lapangan.php',
                                 'logout' => '../umum/logout.php',
                                 'default' => 'home.php',
                             ];
