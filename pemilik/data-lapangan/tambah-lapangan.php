@@ -20,9 +20,9 @@
                 <input type="text" name="harga" class="form-control mt-2 mb-5" placeholder="Harga">
             </div>
 
-            <button type="submit" class="btn btn-outline-primary mb-5" name="tambah-karyawan">Tambah</button>
+            <button type="submit" class="btn btn-outline-primary mb-5" name="tambah-lapangan">Tambah</button>
             <button type="reset" class="btn btn-outline-danger mb-5">Batal</button>
-            <a href="?page=data-karyawan" class="btn btn-outline-secondary mb-5">Kembali</a>
+            <a href="?page=data-lapangan" class="btn btn-outline-secondary mb-5">Kembali</a>
 
         </form>
     </div>

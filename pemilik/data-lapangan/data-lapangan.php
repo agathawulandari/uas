@@ -45,8 +45,8 @@
                     <td><?php echo $d['nama_kategori']; ?></td>
                     <td><?php echo $d['deskripsi']; ?></td>
                     <td><?php echo $d['harga_kategori']; ?></td>
-                    <td><a href="?page=edit-anggota&nama=<?php echo $d['nama_lapangan']; ?>" class="btn btn-sm btn-outline-warning">Edit</a></td>
-                    <td><a href="?page=hapus-anggota&nama=<?php echo $d['nama_lapangan']; ?>" class="btn btn-sm btn-outline-danger">Hapus</a></td>
+                    <td><a href="?page=edit-lapangan&id=<?php echo $d['id_lapangan']; ?>" class="btn btn-sm btn-outline-warning">Edit</a></td>
+                    <td><a href="?page=hapus-lapangan&id=<?php echo $d['id_lapangan']; ?>" class="btn btn-sm btn-outline-danger">Hapus</a></td>
                 </tr>
         
                 <?php 
