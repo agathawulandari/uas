@@ -87,20 +87,22 @@ if(isset($_POST['edit-karyawan'])) {
         exit();
     }
 
-    // $edit = mysqli_query($koneksi, "UPDATE pengguna SET nama_pengguna='$nama_pengguna', email='$email', telp='$telp', alamat='$alamat', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir' WHERE pengguna.id_pengguna = '$username' ");
-
-    // $edit = mysqli_query($koneksi, "UPDATE pengguna SET nama_pengguna='$nama_pengguna', email='$email', telp='$telp', alamat='$alamat', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir' WHERE id_pengguna=$id_pengguna AND username=$username");
-
-    // if($edit==true){
-    //     header('location:../index.php?page=data-karyawan');
-    //     exit();
-    // }else{
-    //     header('location:../index.php?page=edit-karyawan');
-    //     exit();
-    // }
-
 }
 
+if(isset($_POST['hapus-karyawan'])){
+    $id_pengguna = $_POST['id_pengguna'];
 
+    $hapus = mysqli_query($koneksi, "DELETE from pengguna WHERE id_pengguna = '$id_pengguna'");
+
+    if($hapus==true){
+        $alertClass = 'alert-success';
+        $message = 'Data berhasil dihapus.';
+        session_start();
+        $_SESSION['alertClass'] = $alertClass;
+        $_SESSION['message'] = $message;
+        header('location:../index.php?page=data-karyawan');
+        exit();
+    }
+}
 
 ?>

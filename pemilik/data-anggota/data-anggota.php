@@ -3,22 +3,6 @@
 
 <div class="row mt-5">
     <div class="col-md-12">
-        <?php 
-            if (isset($_SESSION['alertClass']) && isset($_SESSION['message'])) {
-                $alertClass = $_SESSION['alertClass'];
-                $message = $_SESSION['message'];
-            
-                echo '<div class="alert ' . $alertClass . ' alert-dismissible fade show" role="alert">
-                        ' . $message . '
-                    </div>';
-                
-                unset($_SESSION['alertClass']);
-                unset($_SESSION['message']);
-            }
-        ?>
-
-    
-        <a href="?page=tambah-anggota" class="btn btn-outline-primary">Tambah Data</a>
 
         <table class="table table-bordered mt-2 text">
             <thead class="text-center">
@@ -29,7 +13,6 @@
                     <th>Nomor Telepon</th>
                     <th>Alamat Email</th>
                     <th>Alamat</th>
-                    <th colspan="2">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,8 +30,6 @@
                     <td><?php echo $d['telp']; ?></td>
                     <td><?php echo $d['email']; ?></td>
                     <td><?php echo $d['alamat']; ?></td>
-                    <td><a href="?page=edit-anggota&id=<?php echo $d['id_pengguna']; ?>" class="btn btn-sm btn-outline-warning">Edit</a></td>
-                    <td><a href="?page=hapus-anggota&id=<?php echo $d['id_pengguna']; ?>" class="btn btn-sm btn-outline-danger">Hapus</a></td>
                 </tr>
         
                 <?php 
