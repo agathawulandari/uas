@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if (isset($_SESSION["username"])){ 
-    $_SESSION["username"] = true;
+    // $_SESSION["username"] = true;
     include("../koneksi.php");
 
     $username = $_SESSION["username"];
@@ -128,60 +128,91 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=tipe">Tipe</a>
+                                <a class="nav-link" href="?page=data-karyawan">Data Karyawan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=reservasi">Reservasi</a>
+                                <a class="nav-link" href="?page=data-anggota">Data Anggota</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=contact">Contact</a>
+                                <a class="nav-link" href="?page=data-lapangan">Data Lapangan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=akun">Akun</a>
+                                <a class="nav-link" href="?page=data-pembayaran">Data Pembayaran</a>
                             </li>
                         </ul>
                     </div>
-                    <a href="?page=logout" class="btn btn-danger">Keluar</a>
+                    <a href="?page=logout" class="btn btn-outline-danger">Keluar</a>
                 </div>
             </nav>
         </header>
 
         <main role="main">
-                <div class="">
-                    <!-- <div class="container"> -->
-                        <?php 
-                            if (isset($_GET['page'])) {
-                                switch ($_GET['page']) {
-                                    case 'tipe':
-                                        include('tipe.php');
-                                    break;
-                                    case 'reservasi':
-                                        include('reservasi.php');
-                                    break;
-                                    case 'contact':
-                                        include('contact.php');
-                                    break;
-                                    case 'akun':
-                                        include('akun.php');
-                                    break;
-                                    case 'logout':
-                                        include('../umum/logout.php');
-                                    break;
-                                    default:
-                                        include('home.php');
-                                    break;
-                                }
-                            }
-                        ?>
-                    <!-- </div> -->
-                </div>
+            <div class="mt-3 py-3">
+                <div class="container">
+                    <?php 
+                        if (isset($_GET['page'])) {
+                            switch ($_GET['page']) {
+                                                                
+                                // karyawan
+                                case 'data-karyawan':
+                                    include('data-karyawan/data-karyawan.php');
+                                break;
+                                case 'tambah-karyawan':
+                                    include('data-karyawan/tambah-karyawan.php');
+                                break;
+                                case 'edit-karyawan':
+                                    include('data-karyawan/edit-karyawan.php');
+                                break;
+                                case 'hapus-karyawan':
+                                    include('data-karyawan/hapus-karyawan.php');
+                                break;
+                                
+                                // anggota
+                                case 'data-anggota':
+                                    include('data-anggota/data-anggota.php');
+                                break;
+                                case 'tambah-anggota':
+                                    include('data-anggota/tambah-anggota.php');
+                                break;
+                                case 'edit-anggota':
+                                    include('data-anggota/edit-anggota.php');
+                                break;
+                                case 'hapus-anggota':
+                                    include('data-anggota/hapus-anggota.php');
+                                break;
+                                
+                                // lapangan
+                                case 'data-lapangan':
+                                    include('data-lapangan/data-lapangan.php');
+                                break;
+                                case 'tambah-lapangan':
+                                    include('data-lapangan/tambah-lapangan.php');
+                                break;
+                                case 'edit-lapangan':
+                                    include('data-lapangan/edit-lapangan.php');
+                                break;
+                                case 'hapus-lapangan':
+                                    include('data-lapangan/hapus-lapangan.php');
+                                break;
 
-            </main>
+                                case 'logout':
+                                    include('../umum/logout.php');
+                                break;      
+                                
+                                default:
+                                    include('home.php');
+                                break;
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+        </main>
         <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
         <!-- FOOTER -->
