@@ -12,9 +12,10 @@ if (isset($_POST["pesan_lapangan"])) {
    $query = "INSERT INTO pemesanan_lapangan (id_kategori, id_lapangan, id_pengguna, tgl_booking, jam_booking, durasi) VALUES ('$id_kategori', '$id_lapangan','$id_pengguna', '$tanggal', '$jam', '$durasi')";
 
        if ($query==true) {
-        echo "sukses, silahkan klik disini <a href='tipe.php'>Disini</a>";
+        echo "sukses, silahkan klik disini <a href='index.php?page=pembayaran'>Disini</a>";
+        
     }else{
-        echo "gagal, silahkan klik  <a href='tipe.php'>Disini</a>";
+        echo "gagal, silahkan klik  <a href='?index.php?page=pembayaran'>Disini</a>";
     }
     
     $result = mysqli_query($koneksi,$query);

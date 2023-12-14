@@ -135,7 +135,7 @@
                             <a class="nav-link" href="?page=tipe">Tipe</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=reservasi">Reservasi</a>
+                            <a class="nav-link" href="?page=pembayaran">Pembayaran</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?page=contact">Contact</a>
@@ -158,8 +158,8 @@
                                 case 'tipe':
                                     include('tipe.php');
                                 break;
-                                case 'reservasi':
-                                    include('reservasi.php');
+                                case 'pembayaran':
+                                    include('pembayaran.php');
                                 break;
                                 case 'contact':
                                     include('contact.php');
