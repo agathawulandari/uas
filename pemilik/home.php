@@ -25,9 +25,9 @@
             </div>
             <div class="card-body">
                 <?php 
-                    $denda = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE tipe_akses=3 ");
-                    $tdenda = mysqli_num_rows($denda);
-                    echo '<h1>'. $tdenda .'</h1>';
+                    $anggota = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE tipe_akses=3 ");
+                    $tanggota = mysqli_num_rows($anggota);
+                    echo '<h1>'. $tanggota .'</h1>';
                 ?>
             </div>
             <div class="card-footer">

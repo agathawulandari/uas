@@ -176,14 +176,10 @@
                                 case 'data-anggota':
                                     include('data-anggota/data-anggota.php');
                                 break;
-                                case 'tambah-anggota':
-                                    include('data-anggota/tambah-anggota.php');
-                                break;
-                                case 'edit-anggota':
-                                    include('data-anggota/edit-anggota.php');
-                                break;
-                                case 'hapus-anggota':
-                                    include('data-anggota/hapus-anggota.php');
+                                
+                                // pembayaran
+                                case 'data-pembayaran':
+                                    include('data-pembayaran/data-pembayaran.php');
                                 break;
                                 
                                 // lapangan
