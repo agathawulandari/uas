@@ -15,22 +15,24 @@
             while ($d = mysqli_fetch_array($data)) {
                 if ($d['id_kategori'] == $kategori) {
                 ?>
-                <div class="row row-cols-1 row-cols-md-4 mb-3">
-                    <div class="col ">
-                        <div class="col-3 mb-3">
-                            <div class="card" style="width: 25rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $d['nama_lapangan']; ?></p>
-                                    <!-- <p class="card-text"><?php echo $d ['deskripsi']; ?></p> -->
-                                    <a href="?page=tambah-pesanan&kategori=<?php echo $kategori;?>&lapangan=<?php echo $d['id_lapangan'] ?>" class="btn btn-sm btn-primary">Pesan</a>
-                                    <a href="?page=jadwal-lap&kategori=<?php echo $d ['id_kategori']?>&lapangan=<?= $d['id_lapangan']?>" class="btn btn-sm btn-secondary">Jadwal</a>
-                                </div>
-                            </div>
-                        </div>
+    <div class="row row-cols-1 row-cols-md-4 mb-3">
+        <div class="col ">
+            <div class="col-3 mb-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="../gambar/lapangan-5.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><?php echo $d['nama_lapangan']; ?></p>
+                        <!-- <p class="card-text"><?php echo $d ['deskripsi']; ?></p> -->
+                        <a href="?page=tambah-pesanan&kategori=<?php echo $kategori;?>&lapangan=<?php echo $d['id_lapangan'] ?>"
+                            class="btn btn-sm btn-primary">Pesan</a>
+                        <a href="?page=jadwal-lap&kategori=<?php echo $d ['id_kategori']?>&lapangan=<?= $d['id_lapangan']?>"
+                            class="btn btn-sm btn-secondary">Jadwal</a>
                     </div>
                 </div>
-            <?php 
+            </div>
+        </div>
+    </div>
+    <?php 
             }
         }   
     ?>

@@ -30,7 +30,7 @@ $kategori  = isset($_GET['kategori']) ? $_GET['kategori'] :'';
     <div class="row row-cols-1 row-cols-md-4 mb-3">
         <div class="col">
             <div class="col-3 mb-3">
-                <div class="card" style="width: 10rem;">
+                <div class="card" style="width: 25rem;">
                     <img src="../gambar/lapangan-5.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text"><?php echo $d ['nama_lapangan']; ?></p>
