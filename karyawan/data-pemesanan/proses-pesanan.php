@@ -29,7 +29,7 @@ if (isset($_POST["tambah_pesanan"])) {
     $last_id = $row['max_id'];
     $last_number = intval(substr($last_id, 2));
     $new_number = $last_number + 1;
-    $new_id = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT); // Menghasilkan format "PL001"
+    $id_pemesanan = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT); // Menghasilkan format "PL001"
 
 
     // data pembayaran
