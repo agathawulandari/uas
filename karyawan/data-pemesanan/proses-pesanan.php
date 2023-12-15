@@ -22,11 +22,14 @@ if (isset($_POST["tambah_pesanan"])) {
     // menghitung total harga
     $total = intval($durasi) * $harga_lapangan;
 
-    // id_pemesanan otomatis
-    $query_lapangan = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pemesanan, 2)) AS max_id FROM pemesanan_lapangan");
-    $pemesanan = mysqli_fetch_assoc($query_lapangan);
-    $pemesanan_lapangan = $pemesanan['max_id'] + 1;
-    $id_pemesanan = 'PL' . str_pad($pemesanan_lapangan, 3, '0', STR_PAD_LEFT);
+    // Ambil nomor faktur terakhir dari tabel pemesanan_lapangan
+    $query = "SELECT MAX(id_pemesanan) as max_id FROM pemesanan_lapangan";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($result);
+    $last_id = $row['max_id'];
+    $last_number = intval(substr($last_id, 2));
+    $new_number = $last_number + 1;
+    $new_id = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT); // Menghasilkan format "PL001"
 
 
     // data pembayaran
