@@ -139,7 +139,7 @@
                                 <a class="nav-link" href="?page=data-pesanan">Data Pemesanan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=akun">Data Barang</a>
+                                <a class="nav-link" href="?page=data-barang">Data Barang</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=data-pengguna">Data Pengguna</a>
@@ -168,8 +168,12 @@
                                 'data-pesanan' => 'data-pemesanan/data-pesanan.php',
                                 'tambah-pesanan' => 'data-pemesanan/tambah-pesanan.php',
                                 'perbarui-pesanan' => 'data-pemesanan/perbarui-pesanan.php',
+                                'hapus-pesanan' => 'data-pengguna/hapus-pemesanan.php',
                                 'jenis-lapangan' => 'data-pemesanan/jenis-lapangan.php',
                                 'lapangan' => 'data-pemesanan/nomor-lapangan.php',
+                                'data-barang' => 'data-barang/data-barang.php',
+                                'jadwal' => 'data-pemesanan/jadwal-tipe.php',
+                                'jadwal-lap' => 'data-pemesanan/jadwal-lap.php',
                                 'logout' => '../umum/logout.php',
                                 'default' => 'home.php',
                             ];
