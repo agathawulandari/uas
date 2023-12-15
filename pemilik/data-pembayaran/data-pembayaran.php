@@ -57,7 +57,7 @@
                                     pembayaran.metode_pembayaran,
                                     pembayaran.status_pembayaran,
                                     pembayaran.bukti_bayar,
-                                    pembayaran.tgl_transfer,
+                                    pembayaran.created_at,
                                     pemesanan_lapangan.total_harga,
                                     pemesanan_raket.total_harga_raket,
                                     pembayaran.total_pembayaran
@@ -86,7 +86,7 @@
                                     pembayaran.metode_pembayaran,
                                     pembayaran.status_pembayaran,
                                     pembayaran.bukti_bayar,
-                                    pembayaran.tgl_transfer,
+                                    pembayaran.created_at,
                                     pemesanan_lapangan.total_harga,
                                     pemesanan_raket.total_harga_raket,
                                     pembayaran.total_pembayaran
@@ -119,7 +119,7 @@
                             <td><?php echo $d['metode_pembayaran']; ?></td>
                             <td><?php echo $d['status_pembayaran']; ?></td>
                             <td><?php echo $d['bukti_bayar']; ?></td>
-                            <td><?php echo $d['tgl_transfer']; ?></td>
+                            <td><?php echo $d['created_at']; ?></td>
                             <td><?php echo $d['total_harga']; ?></td>
                             <td><?php echo $d['total_harga_raket']; ?></td>
                             <td><?php echo $d['total_pembayaran']; ?></td>
