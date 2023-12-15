@@ -26,7 +26,7 @@
                 <th>Email</th>
                 <th>No Telpon</th>
                 <th>Alamat</th>
-                <th colspan="2">Aksi</th>
+                <th>Aksi</th>
             </tr>
         </thead>
 
@@ -46,7 +46,6 @@
                 <td><?= $tabel['telp']?></td>
                 <td><?= $tabel['alamat']?></td>
                 <td class="text-center"><a href="?page=perbarui-pengguna&user=<?php echo $tabel['id_pengguna']?>" class="btn btn-sm btn-warning">Perbarui</a></a></td>
-                <td class="text-center"><a href="?page=hapus-pengguna&user=<?php echo $tabel['id_pengguna']?>" class="btn btn-sm btn-danger">Hapus</a></a></td>
             </tr>
         </tbody>
         <?php }?>
