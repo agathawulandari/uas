@@ -16,6 +16,14 @@ if (isset($_POST["pesan_lapangan"])) {
     $jam = isset($_POST['jam']) ? $_POST['jam'] : '';
     $durasi = isset($_POST['durasi']) ? $_POST['durasi'] : '';
     
+    // untuk menghitung waktu habis main
+    $mulai_waktu = strtotime($jam_booking);
+    $habis_waktu = $mulai_waktu + (intval($durasi) * 3600);
+    $habis = date('H:i:s', $habis_waktu);    
+
+    // menghitung total harga
+    $total = intval($durasi) * $harga_lapangan;
+    
    $query = "INSERT INTO pemesanan_lapangan (id_pemesanan,id_kategori, id_lapangan, id_pengguna, tgl_booking, jam_booking, durasi) VALUES ('$id_pemesanan','$id_kategori', '$id_lapangan','$id_pengguna', '$tanggal', '$jam', '$durasi')";
 
        if ($query==true) {
