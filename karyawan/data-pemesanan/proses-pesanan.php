@@ -31,6 +31,10 @@ if (isset($_POST["tambah_pesanan"])) {
     $new_number = $last_number + 1;
     $id_pemesanan = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT); // Menghasilkan format "PL001"
 
+    $query_bayar = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pembayaran, 2)) AS max_id FROM pembayaran");
+    $bayar = mysqli_fetch_assoc($query_bayar);
+    $pembayaran_lapangan = $bayar['max_id'] + 1;
+    $id_pembayaran = 'P' . str_pad($pembayaran_lapangan, 4, '0', STR_PAD_LEFT);
 
     // data pembayaran
     $metode = "Cash";
@@ -74,7 +78,7 @@ if (isset($_POST["tambah_pesanan"])) {
                     created_at,
                     total_pembayaran)
                 VALUES (
-                    '',
+                    '$id_pembayaran',
                     '$id_pengguna',
                     '$id_pemesanan',
                     '$metode',
