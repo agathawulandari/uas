@@ -4,8 +4,8 @@ include('../koneksi.php');
 
 <div class="container">
     <header>
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis">TIPE</h1>
+        <div class="pricing-header py-5 mx-auto text-center">
+            <h2 class="text-body-emphasis">TIPE</h2>
             <p class="fs-5 text-body-secondary">Pilih Tipe Lapangan Yang Anda Inginkan</p>
         </div>
     </header>

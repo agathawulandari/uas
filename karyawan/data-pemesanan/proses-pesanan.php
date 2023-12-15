@@ -2,66 +2,35 @@
 
 include("../../koneksi.php");
 
-if (isset($_POST['perbarui_pengguna'])){
-    $id_pengguna = $_POST["id_pengguna"];
-    $nama_pengguna = $_POST["nama_pengguna"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $telp = $_POST["telp"];
-    $alamat = $_POST["alamat"];
-    $tipe = $_POST["tipe"];
-
-    // untuk mengcek apakah sudah ada username yang diinputkan dan juga di cek berdasarkan id_pengguna yang tidak sama dgn yg sedang aktif
-    $cekUsernameQuery = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE username = '$username' AND id_pengguna != '$id_pengguna'");
-    $cekUsernameResult = mysqli_fetch_assoc($cekUsernameQuery);
-
-    if ($cekUsernameResult) {
-        $alertClass = 'alert-warning';
-        $message = 'Username sudah digunakan oleh pengguna lain. Silahkan pilih username lain.';
-        
-        session_start();
-        $_SESSION['alertClass'] = $alertClass;
-        $_SESSION['message'] = $message;
-
-        header("Location: ../index.php?page=perbarui-pengguna&user=" . $id_pengguna);
-        exit();
-    }
-
-    $perbarui = mysqli_query($koneksi,"UPDATE pengguna set nama_pengguna ='$nama_pengguna', email ='$email', telp ='$telp', alamat = '$alamat', username = '$username'  WHERE id_pengguna = '$id_pengguna'");
-
-    if ($perbarui == true) {
-        $alertClass = 'alert-success';
-        $message = 'Data sukses diperbarui.';
-        session_start();
-        $_SESSION['alertClass'] = $alertClass;
-        $_SESSION['message'] = $message;
-
-        header("Location: ../index.php?page=data-pengguna");
-        exit();
-    } else {
-        $alertClass = 'alert-danger';
-        $message = 'Data gagal diperbarui. Silahkan coba lagi.';
-        session_start();
-        $_SESSION['alertClass'] = $alertClass;
-        $_SESSION['message'] = $message;
-
-        header("Location: ../index.php?page=perbarui-pengguna&user=" . $id_pengguna);
-        exit();
-    }
-}
-
 
 if (isset($_POST["tambah_pesanan"])) {
-    $pilihanakun = $_POST["pilihanakun"];
 
+    // Untuk menyimpan dari radio button
+    $pilihanakun = $_POST["pilihanakun"];
     if ($pilihanakun == "Ada") {
         $id_pengguna = $_POST["id_pengguna"];
     } else {
         // Jika "Tidak Punya Akun", ambil data dari input
         $id_pengguna = $_POST["id_pengguna_input"];
     }
+
     $id_lapangan = $_POST["id_lapangan"]??NULL;
-    
+    $tanggal_booking = $_POST["tanggal_booking"]??NULL;
+    $jam_booking = $_POST["jam_booking"]??NULL; 
+    $durasi = $_POST["durasi"]??NULL;
+    $id_kategori = $_POST["id_kategori"]??NULL;
+    $harga_lapangan = $_POST["harga_lapangan"]??NULL;
+
+    // untuk menghitung waktu habis main
+    $mulai_waktu = strtotime($jam_booking);
+    $habis_waktu = $mulai_waktu + (intval($durasi) * 3600);
+    $habis = date('H:i:s', $habis_waktu);    
+
+    $total = intval($durasi) * $harga_lapangan;
+
+    $timezone = new DateTimeZone('Asia/Jakarta');
+    $date_time_Obj = date_create('now', $timezone);
+    $date_time = $date_time_Obj->format('Y-m-d H:i:s');
 
         // Ambil nomor faktur terakhir dari tabel pemesanan_lapangan
         $query = "SELECT MAX(id_pemesanan) as max_id FROM pemesanan_lapangan";
@@ -76,7 +45,28 @@ if (isset($_POST["tambah_pesanan"])) {
         $new_number = $last_number + 1;
         $new_id = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT); // Menghasilkan format "PL001"
         
-        $query = "INSERT INTO pemesanan_lapangan (id_pemesanan, id_lapangan, id_pengguna) VALUES ('$new_id', '$id_lapangan','$id_pengguna')";
+        $query = "INSERT INTO pemesanan_lapangan (
+                id_pemesanan, 
+                id_kategori, 
+                id_lapangan, 
+                id_pengguna,  
+                tgl_booking, 
+                jam_booking, 
+                durasi,
+                jam_habis,
+                total_harga,
+                created_at) 
+            VALUES (
+                '$new_id', 
+                '$id_kategori', 
+                '$id_lapangan', 
+                '$id_pengguna',
+                '$tanggal_booking', 
+                '$jam_booking', 
+                '$durasi',
+                '$habis',
+                '$total',
+                '$date_time')";
         $result = mysqli_query($koneksi, $query);
 
         // Check if the query was successful
@@ -88,20 +78,4 @@ if (isset($_POST["tambah_pesanan"])) {
         }
     }
 
-
-if(isset($_POST['hapus_pengguna'])){
-    $id_pengguna = $_POST['id_pengguna'];
-
-    $hapus = mysqli_query($koneksi, "DELETE from pengguna WHERE id_pengguna = '$id_pengguna'");
-
-    if($hapus==true){
-        $alertClass = 'alert-success';
-        $message = 'Data berhasil dihapus.';
-        session_start();
-        $_SESSION['alertClass'] = $alertClass;
-        $_SESSION['message'] = $message;
-        header('location:../index.php?page=data-pengguna');
-        exit();
-    }
-}
 ?>

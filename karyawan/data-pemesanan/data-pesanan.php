@@ -28,9 +28,11 @@
                 <th>Tanggal</th>
                 <th>Jam Booking</th>
                 <th>Durasi</th>
+                <th>Jam Habis</th>
                 <th>Harga Kategori</th>
                 <th>Total Harga</th>
-                <th colspan="2">Aksi</th>
+                <th>Status</th>
+                <th>Aksi</th>
             </tr>
         </thead>
 
@@ -46,6 +48,7 @@
                         pemesanan_lapangan.durasi,
                         kategori.harga_kategori,
                         pemesanan_lapangan.total_harga,
+                        pemesanan_lapangan.jam_habis,
                         pengguna.id_pengguna,
                         pemesanan_lapangan.id_pengguna as nama
                     FROM
@@ -67,10 +70,11 @@
                 <td><?= $tabel['tgl_booking']?></td>
                 <td><?= $tabel['jam_booking']?></td>
                 <td><?= $tabel['durasi']?></td>
+                <td><?= $tabel['jam_habis'] ?></td>
                 <td><?= $tabel['harga_kategori']?></td>
                 <td><?= $tabel['total_harga']?></td>
-                <td class="text-center"><a href="?page=perbarui-pengguna&user=<?php echo $tabel['id_pengguna']?>" class="btn btn-sm btn-warning">Perbarui</a></a></td>
-                <td class="text-center"><a href="?page=hapus-pengguna&user=<?php echo $tabel['id_pengguna']?>" class="btn btn-sm btn-danger">Hapus</a></a></td>
+                <td></td>
+                <td class="text-center"><a href="?page=perbarui-pesanan&pesanan=<?php echo $tabel['id_pemesanan']?>" class="btn btn-sm btn-warning">Perbarui</a></a></td>
             </tr>
         </tbody>
         <?php }?>

@@ -5,8 +5,8 @@
 ?>
 <div class="container">
     <header>
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis">Nomor Lapangan <?php echo $tipe['nama_kategori']?></h1>
+        <div class="pricing-header py-5 mx-auto text-center">
+            <h2 class="text-body-emphasis">Nomor Lapangan <?php echo $tipe['nama_kategori']?></h2>
             <p class="fs-5 text-body-secondary">Pilih Nomor Lapangan Yang Anda Inginkan</p>
         </div>
     </header>
@@ -23,7 +23,8 @@
                                 <div class="card-body">
                                     <p class="card-text"><?php echo $d['nama_lapangan']; ?></p>
                                     <!-- <p class="card-text"><?php echo $d ['deskripsi']; ?></p> -->
-                                    <a href="?page=tambah-pesanan&id_lapangan=<?php echo $d['id_lapangan'] ?>" class="btn btn-sm btn-primary">Pesan</a>
+                                    <a href="?page=tambah-pesanan&kategori=<?php echo $kategori;?>&lapangan=<?php echo $d['id_lapangan'] ?>" class="btn btn-sm btn-primary">Pesan</a>
+                                    <a href="?page=jadwal-lap&kategori=<?php echo $d ['id_kategori']?>&lapangan=<?= $d['id_lapangan']?>" class="btn btn-sm btn-secondary">Jadwal</a>
                                 </div>
                             </div>
                         </div>

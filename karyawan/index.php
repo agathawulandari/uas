@@ -168,7 +168,6 @@
                                 'data-pesanan' => 'data-pemesanan/data-pesanan.php',
                                 'tambah-pesanan' => 'data-pemesanan/tambah-pesanan.php',
                                 'perbarui-pesanan' => 'data-pemesanan/perbarui-pesanan.php',
-                                'hapus-pesanan' => 'data-pengguna/hapus-pemesanan.php',
                                 'jenis-lapangan' => 'data-pemesanan/jenis-lapangan.php',
                                 'lapangan' => 'data-pemesanan/nomor-lapangan.php',
                                 'logout' => '../umum/logout.php',
