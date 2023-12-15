@@ -25,14 +25,11 @@
                         <th>Durasi</th>
                         <th>Tanggal Booking</th>
                         <th>Jam Booking</th>
-                        <th>Jumlah Raket</th>
-                        <th>Harga Raket</th>
                         <th>Metode Pembayaran</th>
                         <th>Status Pembayaran</th>
                         <th>Bukti Pembayaran</th>
-                        <th>Tanggal Pembayaran</th>
+                        <th>Buat Pembayaran</th>
                         <th>Sub Total Kategori</th>
-                        <th>Sub Total Raket</th>
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -52,20 +49,16 @@
                                     pemesanan_lapangan.durasi,
                                     pemesanan_lapangan.tgl_booking,
                                     pemesanan_lapangan.jam_booking,
-                                    pemesanan_raket.jml_raket,
-                                    pemesanan_raket.harga_raket,
                                     pembayaran.metode_pembayaran,
                                     pembayaran.status_pembayaran,
                                     pembayaran.bukti_bayar,
                                     pembayaran.created_at,
                                     pemesanan_lapangan.total_harga,
-                                    pemesanan_raket.total_harga_raket,
                                     pembayaran.total_pembayaran
                                 FROM 
                                     pembayaran
                                     LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
                                     LEFT JOIN pemesanan_lapangan ON pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
-                                    LEFT JOIN pemesanan_raket ON pembayaran.id_raket = pemesanan_raket.id_raket
                                     LEFT JOIN lapangan ON pemesanan_lapangan.id_lapangan = lapangan.id_lapangan
                                     LEFT JOIN kategori ON lapangan.id_kategori = kategori.id_kategori
                                 WHERE
@@ -81,20 +74,16 @@
                                     pemesanan_lapangan.durasi,
                                     pemesanan_lapangan.tgl_booking,
                                     pemesanan_lapangan.jam_booking,
-                                    pemesanan_raket.jml_raket,
-                                    pemesanan_raket.harga_raket,
                                     pembayaran.metode_pembayaran,
                                     pembayaran.status_pembayaran,
                                     pembayaran.bukti_bayar,
                                     pembayaran.created_at,
                                     pemesanan_lapangan.total_harga,
-                                    pemesanan_raket.total_harga_raket,
                                     pembayaran.total_pembayaran
                                 FROM 
                                     pembayaran
                                     LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
                                     LEFT JOIN pemesanan_lapangan ON pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
-                                    LEFT JOIN pemesanan_raket ON pembayaran.id_raket = pemesanan_raket.id_raket
                                     LEFT JOIN lapangan ON pemesanan_lapangan.id_lapangan = lapangan.id_lapangan
                                     LEFT JOIN kategori ON lapangan.id_kategori = kategori.id_kategori
                                 ORDER BY pengguna.nama_pengguna ASC";
@@ -114,14 +103,11 @@
                             <td><?php echo $d['durasi']; ?></td>
                             <td><?php echo $d['tgl_booking']; ?></td>
                             <td><?php echo $d['jam_booking']; ?></td>
-                            <td><?php echo $d['jml_raket']; ?></td>
-                            <td><?php echo $d['harga_raket']; ?></td>
                             <td><?php echo $d['metode_pembayaran']; ?></td>
                             <td><?php echo $d['status_pembayaran']; ?></td>
                             <td><?php echo $d['bukti_bayar']; ?></td>
                             <td><?php echo $d['created_at']; ?></td>
                             <td><?php echo $d['total_harga']; ?></td>
-                            <td><?php echo $d['total_harga_raket']; ?></td>
                             <td><?php echo $d['total_pembayaran']; ?></td>
                         </tr>
 
