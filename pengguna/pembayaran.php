@@ -51,7 +51,17 @@ if (isset($_SESSION["username"])){
             <?php 
               
               
-              $data = mysqli_query($koneksi, "SELECT * FROM  pemesanan_lapangan where id_pengguna");
+              $data = mysqli_query($koneksi, "SELECT 
+              pemesanan_lapangan.*,
+              pembayaran.status_pembayaran,
+              kategori.harga_kategori, 
+              kategori.nama_kategori, 
+              lapangan.nama_lapangan
+              FROM  pemesanan_lapangan 
+              left join pembayaran on pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
+              left join kategori on kategori.id_kategori = pemesanan_lapangan.id_kategori 
+              left join lapangan on lapangan.id_lapangan = pemesanan_lapangan.id_lapangan
+              where pemesanan_lapangan.id_pengguna");
          
             while ($d = mysqli_fetch_array($data)) {
                 if ($username ['id_pengguna'] == $d['id_pengguna']) { 
@@ -59,13 +69,13 @@ if (isset($_SESSION["username"])){
                         ?>
             <tr>
                 <td><?php echo $no++ ?></td>
-                <td><?php echo $d['id_kategori'] ?></td>
-                <td><?php echo $d['id_lapangan'] ?></td>
+                <td><?php echo $d['nama_kategori'] ?></td>
+                <td><?php echo $d['nama_lapangan'] ?></td>
                 <td><?php echo $d['tgl_booking'] ?></td>
                 <td><?php echo $d['jam_booking'] ?></td>
                 <td><?php echo $d['durasi'] ?></td>
-                <td><?php ?></td>
-                <td><?php ?></td>
+                <td><?php echo $d['harga_kategori']?></td>
+                <td><?php echo $d['status_pembayaran']?></td>
                 <td><a href="?page=bukti_bayar&kategori=<?php echo $d ['id_kategori'] ?>&lapangan=<?php echo $d ['id_lapangan'] ?>&pemesanan=<?php echo $d ['id_pemesanan'] ?>"
                         class="btn btn-sm btn-warning w-100">Bayar</a>
                 </td>
