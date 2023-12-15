@@ -179,6 +179,9 @@
                                 case 'pesan':
                                     include('pesan_lapangan.php');
                                 break;
+                                case 'bukti_bayar':
+                                    include('bukti_bayar.php');
+                                break;
                                 case 'logout':
                                     include('../umum/logout.php');
                                 break;

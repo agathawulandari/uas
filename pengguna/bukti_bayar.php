@@ -5,6 +5,7 @@
     //mengambil id_kategori dan id_lapangan dari url
     $kategori_url  = isset($_GET['kategori']) ? $_GET['kategori'] :'';
     $lapangan_url  = isset($_GET['lapangan']) ? $_GET['lapangan'] :'';
+    $pemesanan_url  = isset($_GET['pemesanan']) ? $_GET['pemesanan'] :'';
     
     //mengambil data pengguna
     $database_pengguna = "SELECT * FROM pengguna where username = '$user'";
@@ -20,17 +21,27 @@
     $database_lapangan = "SELECT * FROM lapangan where id_lapangan = '$lapangan_url'";
     $lapangan_query = mysqli_query($koneksi, $database_lapangan);
     $lapangan = mysqli_fetch_array($lapangan_query);
+    
+    //mengambil data pemesanan
+    $database_pemesanan = "SELECT * FROM pemesanan_lapangan where id_pemesanan = '$pemesanan_url'";
+    $pemesanan_query = mysqli_query($koneksi, $database_pemesanan);
+    $pemesanan = mysqli_fetch_array($pemesanan_query);
 ?>
 <header>
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-        <h1 class="display-4 fw-normal text-body-emphasis">Pesan</h1>
-        <p class="fs-5 text-body-secondary">Silahkan isi from pemesanan lapangan</p>
+        <h1 class="display-4 fw-normal text-body-emphasis">Bayar</h1>
+        <p class="fs-5 text-body-secondary">Silahkan masukan bukti pembayaran</p>
     </div>
 </header>
 
 <body>
     <div class="container">
         <form action="proses_pesan.php" method="post">
+            <div class="col-12">
+                <label for="id_pemesanan" class="form-label">Nomor Pemesanan</label>
+                <input type="text" class="form-control" id="id_pemesanan" name="id_pemesanan" placeholder=""
+                    value="<?php echo $pemesanan ['id_pemesanan']; ?>" required disabled>
+            </div>
             <div class="col-12">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder=""
@@ -54,24 +65,21 @@
             </div>
             <hr>
             <div class="col-12">
-                <label for="tanggal" class="form-label">Tanggal</label>
-                <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder=""
-                    value="Isikan Tanggal bermain" required>
+                <label for="metode_pembayaran" class="form-label">Metode pembayaran</label>
+                <input type="text" class="form-control" id="metode_pembayaran" name="metode_pembayaran" placeholder=""
+                    value="Transfer" required disabled>
+                <input type="text" class="form-control mt-2" id="metode" name="metode" placeholder=""
+                    value="BRI | 8849583457" required disabled>
             </div>
+
             <div class="col-12">
-                <label for="jam" class="form-label">Jam Booking</label>
-                <input type="time" class="form-control" id="jam" name="jam" placeholder="Isikan Jam Booking bermain"
-                    value="" required>
-            </div>
-            <div class="col-12">
-                <label for="durasi" class="form-label">Durasi</label>
-                <input type="time" class="form-control" id="durasi" name="durasi" placeholder="Isiskan durasi bermain"
-                    value="" required>
+                <label for="bukti" class="form-label">Bukti Bayar</label>
+                <input type="file" class="form-control" id="bukti" name="bukti" placeholder="" value="" required>
             </div>
             <div class="col-12 mt-3">
                 <button type="submit" class="btn btn-primary" name="pesan_lapangan">Pesan</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>
-                <a href="?page=tipe" class="btn btn-danger">Batal</a>
+                <a href="?page=pembayaran" class="btn btn-danger">Batal</a>
             </div>
 
         </form>

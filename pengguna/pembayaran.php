@@ -4,9 +4,25 @@ include('../koneksi.php');
 if (isset($_SESSION["username"])){
         $user = $_SESSION["username"];
 
+
+        //mengambil id_kategori dan id_lapangan dari url
+    $kategori_url  = isset($_GET['kategori']) ? $_GET['kategori'] :'';
+    $lapangan_url  = isset($_GET['lapangan']) ? $_GET['lapangan'] :'';
+    
+    //mengambil data pengguna
     $database_pengguna = "SELECT * FROM pengguna where username = '$user'";
     $pengguna = mysqli_query($koneksi, $database_pengguna);
     $username = mysqli_fetch_array($pengguna);
+
+    //mengambil data kategori
+    $database_kategori = "SELECT * FROM kategori where id_kategori = '$kategori_url'";
+    $kategori_query = mysqli_query($koneksi, $database_kategori);
+    $kategori = mysqli_fetch_array($kategori_query);
+    
+    //mengambil data lapangan
+    $database_lapangan = "SELECT * FROM lapangan where id_lapangan = '$lapangan_url'";
+    $lapangan_query = mysqli_query($koneksi, $database_lapangan);
+    $lapangan = mysqli_fetch_array($lapangan_query);
 ?>
 <div class="container">
     <div class="py-5 text-center">
@@ -48,7 +64,10 @@ if (isset($_SESSION["username"])){
                 <td><?php echo $d['durasi'] ?></td>
                 <td><?php ?></td>
                 <td><?php ?></td>
-                <td><a href="" class="btn btn-sm btn-warning w-100">Bayar</a></td>
+                <td><a href="?page=bukti_bayar&kategori=<?php echo $d ['id_kategori'] ?>&lapangan=<?php echo $d ['id_lapangan'] ?>&pemesanan=<?php echo $d ['id_pemesanan'] ?>"
+                        class="btn btn-sm btn-warning w-100">Bayar</a>
+                </td>
+                <!-- <td><a href="?page=bukti_bayar" class="btn btn-sm btn-warning w-100">Bayar</a></td> -->
             </tr>
             <?php 
         }
