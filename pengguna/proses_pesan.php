@@ -2,11 +2,12 @@
 include('../koneksi.php');
 
 if (isset($_POST["pesan_lapangan"])) {
-      // untuk pemesanan
-    $query_lapangan = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pemesanan, 2)) AS max_id FROM pemesanan_lapangan");
-    $pemesanan = mysqli_fetch_assoc($query_lapangan);
-    $pemesanan_lapangan = $pemesanan['max_id'] + 1;
-    $id_pemesanan = 'PL' . str_pad($pemesanan_lapangan, 3, '0', STR_PAD_LEFT);
+     // untuk pemesanan
+    $query_pemesanan = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pemesanan, 2)) AS max_id FROM pemesanan_lapangan");
+    $pemesanan_lapangan = mysqli_fetch_assoc($query_pemesanan);
+    $d_lapangan = $pemesanan_lapangan['max_id'];
+    $id_pemesanan = 'PL' . str_pad($d_lapangan, 3, '0', STR_PAD_LEFT);
+
     
     $id_kategori =isset($_POST['id_kategori']) ? $_POST['id_kategori'] : '';
     $id_lapangan = isset($_POST['id_lapangan']) ? $_POST['id_lapangan'] : '';
@@ -45,7 +46,9 @@ if (isset($_POST['bukti'])) {
 
     // move_uploaded_file($id_pengguna, $bukti_bayar_path);
     
-    $query = "INSERT INTO pembayaran (id_pembayaran,id_pengguna, id_pemesanan, metode_pembayaran, status_pembayaran, bukti_bayar, created_at) VALUES ('$id_pembayaran','$id_pengguna', '$id_pemesanan'  , '$metode_pembayaran', '$status_pembayaran','$bukti_bayar_path', NOW())";
+    $query = "INSERT INTO pembayaran (id_pembayaran,id_pengguna, id_pemesanan, metode_pembayaran, status_pembayaran, bukti_bayar, created_at) VALUES ('$id_pembayaran','$id_pengguna', '$id_pemesanan', '$metode_pembayaran', '$status_pembayaran','$bukti_bayar_path', NOW())";
+
+      
 
     mysqli_query($koneksi, $query);
 

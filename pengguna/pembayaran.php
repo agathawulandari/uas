@@ -1,8 +1,10 @@
 <?php 
 include('../koneksi.php');
-
+// $kategori  = isset($_GET['kategori']) ? $_GET['kategori'] :'';
 if (isset($_SESSION["username"])){
         $user = $_SESSION["username"];
+
+                    $pembayaran = mysqli_query($koneksi, "SELECT * FROM pembayaran where id_pengguna ");
 
 
         //mengambil id_kategori dan id_lapangan dari url
@@ -47,19 +49,14 @@ if (isset($_SESSION["username"])){
                 <td colspan="3">Aksi</td>
             </tr>
             <?php 
-
-            
               
-            $data = mysqli_query($koneksi, "SELECT * FROM  pemesanan_lapangan where id_pengguna");
-            $pembayaran = mysqli_query($koneksi, "SELECT * FROM pembayaran WHERE id_pembayaran");
-            $kategori = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id_kategori");
+              
+              $data = mysqli_query($koneksi, "SELECT * FROM  pemesanan_lapangan where id_pengguna");
+         
             while ($d = mysqli_fetch_array($data)) {
-            while ($c = mysqli_fetch_array($pembayaran)) {
-                
-                if ($username ['id_pengguna'] == $d['id_pengguna']) {
-                    
-                    $no = 1;
-                    ?>
+                if ($username ['id_pengguna'] == $d['id_pengguna']) { 
+                        $no = 1;
+                        ?>
             <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $d['id_kategori'] ?></td>
@@ -68,19 +65,16 @@ if (isset($_SESSION["username"])){
                 <td><?php echo $d['jam_booking'] ?></td>
                 <td><?php echo $d['durasi'] ?></td>
                 <td><?php ?></td>
-                <td><?php echo $c ['status_pembayaran']?></td>
+                <td><?php ?></td>
                 <td><a href="?page=bukti_bayar&kategori=<?php echo $d ['id_kategori'] ?>&lapangan=<?php echo $d ['id_lapangan'] ?>&pemesanan=<?php echo $d ['id_pemesanan'] ?>"
                         class="btn btn-sm btn-warning w-100">Bayar</a>
                 </td>
+                <?php 
+        }
+    }   
+        ?>
                 <!-- <td><a href="?page=bukti_bayar" class="btn btn-sm btn-warning w-100">Bayar</a></td> -->
             </tr>
-            <?php 
-        }
-    }
-}
-
-
-        ?>
         </table>
     </div>
 </div>
