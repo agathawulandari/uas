@@ -31,7 +31,7 @@ $kategori  = isset($_GET['kategori']) ? $_GET['kategori'] :'';
         <div class="col">
             <div class="col-3 mb-3">
                 <div class="card" style="width: 10rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="../gambar/lapangan-5.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text"><?php echo $d ['nama_lapangan']; ?></p>
                         <a href="?page=pesan&kategori=<?php echo $d ['id_kategori'] ?>&lapangan=<?php echo $d ['id_lapangan'] ?>"
