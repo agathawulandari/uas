@@ -17,7 +17,7 @@ include('../koneksi.php');
         
         ?>
         <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary" style="height: 25rem;">
                 <div class="card-header py-3 text-bg-primary border-primary">
                     <h4 class="my-0 fw-normal"><?php echo $d ['nama_kategori']; ?></h4>
                 </div>
@@ -27,11 +27,8 @@ include('../koneksi.php');
                     </h1>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li><?php echo $d ['deskripsi']; ?></li>
-                        <!-- <li>memakai karpet sebagai alas lapangan</li>
-                        <li>memakai pencahayaan yang lebih baik</li>
-                        <li>kursi-kursi khusus yang nyamanan</li> -->
                     </ul>
-                    <div class="container text-center">
+                    <div class="container text-center position-absolute bottom-0 start-0 mb-3">
                         <div class="row g-2">
                             <div class="col-6">
                                 <a href="?page=jadwal&kategori=<?php echo $d ['id_kategori'] ?>"
@@ -41,10 +38,7 @@ include('../koneksi.php');
                                 <a href="?page=lapangan&kategori=<?php echo $d ['id_kategori'] ?>"
                                     class="btn btn-lg btn-primary w-100">Pesan</a>
                             </div>
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -55,85 +49,30 @@ include('../koneksi.php');
             ?>
     </div>
 
-    <h2 class="display-6 text-center mb-5 mt-5">Fasilitas</h2>
+    <h2 class="display-6 text-center mb-5 mt-5">Sewa Kebutuhan Badminton</h2>
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Raket</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">harga<small class="text-body-secondary fw-light">/jam</small>
+                </h1>
 
-    <div class="table-responsive">
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th style="width: 34%;"></th>
-                    <th style="width: 22%;">Reguler</th>
-                    <th style="width: 22%;">Semi Premium</th>
-                    <th style="width: 22%;">Premium</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="text-start">Lapangan</th>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                </tr>
-                <tr>
-                    <th scope="row" class="text-start">Kursi-kursi khusus</th>
-                    <td></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                </tr>
-            </tbody>
+                <div class="container text-center">
+                    <div class="row g-2">
 
-            <tbody>
-                <tr>
-                    <th scope="row" class="text-start">Pencahayaan yang lebih baik</th>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                </tr>
-                <tr>
-                    <th scope="row" class="text-start">Perlengkapan bermain</th>
-                    <td></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                </tr>
-                <!-- <tr>
-                    <th scope="row" class="text-start">Unlimited members</th>
-                    <td></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                </tr>
-                <tr>
-                    <th scope="row" class="text-start">Extra security</th>
-                    <td></td>
-                    <td></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                </tr> -->
-            </tbody>
-        </table>
+                        <div class="col-6">
+                            <a href="?page=lapangan&kategori=<?php echo $d ['id_kategori'] ?>"
+                                class="btn btn-lg btn-primary w-100">Pesan</a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>

@@ -41,6 +41,15 @@
                 <label for="id_pemesanan" class="form-label">Nomor Pemesanan</label>
                 <input type="text" class="form-control" id="id_pemesanan" name="id_pemesanan" placeholder=""
                     value="<?php echo $pemesanan ['id_pemesanan']; ?>" required disabled>
+                <input type="hidden" class="form-control" id="id_pemesanan" name="id_pemesanan" placeholder=""
+                    value="<?php echo $pemesanan ['id_pemesanan']; ?>" required>
+            </div>
+            <div class="col-12">
+                <label for="id_raket" class="form-label">Pemesanan Raket</label>
+                <input type="text" class="form-control" id="id_raket" name="id_raket" placeholder="" value="0" required
+                    disabled>
+                <input type="hidden" class="form-control" id="id_raket" name="id_raket" placeholder="" value="0"
+                    required>
             </div>
             <div class="col-12">
                 <label for="username" class="form-label">Username</label>
@@ -68,16 +77,21 @@
                 <label for="metode_pembayaran" class="form-label">Metode pembayaran</label>
                 <input type="text" class="form-control" id="metode_pembayaran" name="metode_pembayaran" placeholder=""
                     value="Transfer" required disabled>
+                <input type="hidden" class="form-control" id="metode_pembayaran" name="metode_pembayaran" placeholder=""
+                    value="Transfer" required>
+                <input type="hidden" class="form-control" id="status_pembayaran" name="status_pembayaran" placeholder=""
+                    value="Lunas" required>
                 <input type="text" class="form-control mt-2" id="metode" name="metode" placeholder=""
                     value="BRI | 8849583457" required disabled>
             </div>
 
             <div class="col-12">
-                <label for="bukti" class="form-label">Bukti Bayar</label>
-                <input type="file" class="form-control" id="bukti" name="bukti" placeholder="" value="" required>
+                <label for="bukti_bayar" class="form-label">Bukti Bayar</label>
+                <input type="file" name="bukti_bayar" id="bukti_bayar" class="form-control">
+                <input type="hidden" name="bukti_bayar_path" id="bukti_bayar_path" value="">
             </div>
             <div class="col-12 mt-3">
-                <button type="submit" class="btn btn-primary" name="pesan_lapangan">Pesan</button>
+                <button type="submit" class="btn btn-primary" name="bukti">Pesan</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>
                 <a href="?page=pembayaran" class="btn btn-danger">Batal</a>
             </div>
