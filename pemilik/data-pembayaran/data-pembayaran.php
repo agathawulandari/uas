@@ -3,6 +3,15 @@
 
 <div class="row mt-5">
     <div class="col-md-12">
+        <div class="col-md-6">
+            <!-- action="data-anggota/anggota-aksi.php" -->
+            <form class="d-flex" role="search" method="post">
+                <input class="form-control me-2" type="search" name="tcari-data" placeholder="Masukkan Nama Pengguna / Username" aria-label="Search" value="<?php echo isset($_POST['tcari-data']) ? htmlspecialchars($_POST['tcari-data']) : ''; ?>">
+
+                <button class="btn btn-outline-success" type="submit" name="cari-data">Cari</button>
+                <a href="?page=data-pembayaran" class="btn btn-outline-danger">Batal</a>
+            </form>
+        </div>
 
         <div class="overflow-x-auto">
             <table class="table table-bordered mt-2 text">
@@ -30,32 +39,68 @@
                 <tbody>
                     <?php
                     $no = 1;
-                    $data = mysqli_query($koneksi, "SELECT 
-                            pengguna.nama_pengguna,
-                            lapangan.nama_lapangan,
-                            kategori.nama_kategori,
-                            kategori.harga_kategori,
-                            pemesanan_lapangan.durasi,
-                            pemesanan_lapangan.tgl_booking,
-                            pemesanan_lapangan.jam_booking,
-                            pemesanan_raket.jml_raket,
-                            pemesanan_raket.harga_raket,
-                            pembayaran.metode_pembayaran,
-                            pembayaran.status_pembayaran,
-                            pembayaran.bukti_bayar,
-                            pembayaran.tgl_transfer,
-                            pemesanan_lapangan.total_harga_lapangan,
-                            pemesanan_raket.total_harga_raket,
-                            pembayaran.total_pembayaran
-                        FROM 
-                            pembayaran
-                            LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
-                            LEFT JOIN pemesanan_lapangan ON pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
-                            LEFT JOIN pemesanan_raket ON pembayaran.id_raket = pemesanan_raket.id_raket
-                            LEFT JOIN lapangan ON pemesanan_lapangan.id_lapangan = lapangan.id_lapangan
-                            LEFT JOIN kategori ON lapangan.id_kategori = kategori.id_kategori
 
-                    ");
+                    // untuk cari data
+                    if(isset($_POST['cari-data'])){
+                        $tcari_data = $_POST['tcari-data'];
+
+                        $sql = "SELECT 
+                                    pengguna.nama_pengguna,
+                                    lapangan.nama_lapangan,
+                                    kategori.nama_kategori,
+                                    kategori.harga_kategori,
+                                    pemesanan_lapangan.durasi,
+                                    pemesanan_lapangan.tgl_booking,
+                                    pemesanan_lapangan.jam_booking,
+                                    pemesanan_raket.jml_raket,
+                                    pemesanan_raket.harga_raket,
+                                    pembayaran.metode_pembayaran,
+                                    pembayaran.status_pembayaran,
+                                    pembayaran.bukti_bayar,
+                                    pembayaran.tgl_transfer,
+                                    pemesanan_lapangan.total_harga,
+                                    pemesanan_raket.total_harga_raket,
+                                    pembayaran.total_pembayaran
+                                FROM 
+                                    pembayaran
+                                    LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
+                                    LEFT JOIN pemesanan_lapangan ON pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
+                                    LEFT JOIN pemesanan_raket ON pembayaran.id_raket = pemesanan_raket.id_raket
+                                    LEFT JOIN lapangan ON pemesanan_lapangan.id_lapangan = lapangan.id_lapangan
+                                    LEFT JOIN kategori ON lapangan.id_kategori = kategori.id_kategori
+                                WHERE
+                                    (pengguna.nama_pengguna LIKE '%$tcari_data%' OR pengguna.username LIKE '%$tcari_data%')
+                                ORDER BY pengguna.nama_pengguna ASC";
+                    } else {
+                        // Query tanpa pencarian
+                        $sql = "SELECT 
+                                    pengguna.nama_pengguna,
+                                    lapangan.nama_lapangan,
+                                    kategori.nama_kategori,
+                                    kategori.harga_kategori,
+                                    pemesanan_lapangan.durasi,
+                                    pemesanan_lapangan.tgl_booking,
+                                    pemesanan_lapangan.jam_booking,
+                                    pemesanan_raket.jml_raket,
+                                    pemesanan_raket.harga_raket,
+                                    pembayaran.metode_pembayaran,
+                                    pembayaran.status_pembayaran,
+                                    pembayaran.bukti_bayar,
+                                    pembayaran.tgl_transfer,
+                                    pemesanan_lapangan.total_harga,
+                                    pemesanan_raket.total_harga_raket,
+                                    pembayaran.total_pembayaran
+                                FROM 
+                                    pembayaran
+                                    LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
+                                    LEFT JOIN pemesanan_lapangan ON pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
+                                    LEFT JOIN pemesanan_raket ON pembayaran.id_raket = pemesanan_raket.id_raket
+                                    LEFT JOIN lapangan ON pemesanan_lapangan.id_lapangan = lapangan.id_lapangan
+                                    LEFT JOIN kategori ON lapangan.id_kategori = kategori.id_kategori
+                                ORDER BY pengguna.nama_pengguna ASC";
+                    }
+
+                    $data = mysqli_query($koneksi, $sql );
                     while ($d = mysqli_fetch_array($data)) {
 
                     ?>
@@ -75,7 +120,7 @@
                             <td><?php echo $d['status_pembayaran']; ?></td>
                             <td><?php echo $d['bukti_bayar']; ?></td>
                             <td><?php echo $d['tgl_transfer']; ?></td>
-                            <td><?php echo $d['total_harga_lapangan']; ?></td>
+                            <td><?php echo $d['total_harga']; ?></td>
                             <td><?php echo $d['total_harga_raket']; ?></td>
                             <td><?php echo $d['total_pembayaran']; ?></td>
                         </tr>
