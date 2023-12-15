@@ -60,50 +60,30 @@ include('../koneksi.php');
             <tbody>
                 <tr>
                     <th scope="row" class="text-start">Lapangan</th>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
+                    <td><b>*</b></td>
+                    <td><b>*</b></td>
+                    <td><b>*</b></td>
                 </tr>
                 <tr>
                     <th scope="row" class="text-start">Kursi-kursi khusus</th>
                     <td></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
+                    <td></td>
+                    <td><b>*</b></td>
                 </tr>
             </tbody>
 
             <tbody>
                 <tr>
                     <th scope="row" class="text-start">Pencahayaan yang lebih baik</th>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>*</b></td>
                 </tr>
                 <tr>
                     <th scope="row" class="text-start">Perlengkapan bermain</th>
                     <td></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
-                    <td><svg class="bi" width="24" height="24">
-                            <use xlink:href="#check" />
-                        </svg></td>
+                    <td></td>
+                    <td><b>*</b></td>
                 </tr>
             </tbody>
         </table>
