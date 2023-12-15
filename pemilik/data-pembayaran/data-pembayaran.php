@@ -28,34 +28,61 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
-                        $no=1;
-                        $data = mysqli_query($koneksi, "SELECT * FROM pengguna, lapangan, kategori, pembayaran, pemesanan_lapangan, pemesanan_raket WHERE tipe_akses=3");
-                        while ($d = mysqli_fetch_array($data)){
-            
+                    <?php
+                    $no = 1;
+                    $data = mysqli_query($koneksi, "SELECT 
+                            pengguna.nama_pengguna,
+                            lapangan.nama_lapangan,
+                            kategori.nama_kategori,
+                            kategori.harga_kategori,
+                            pemesanan_lapangan.durasi,
+                            pemesanan_lapangan.tgl_booking,
+                            pemesanan_lapangan.jam_booking,
+                            pemesanan_raket.jml_raket,
+                            pemesanan_raket.harga_raket,
+                            pembayaran.metode_pembayaran,
+                            pembayaran.status_pembayaran,
+                            pembayaran.bukti_bayar,
+                            pembayaran.tgl_transfer,
+                            pemesanan_lapangan.total_harga_lapangan,
+                            pemesanan_raket.total_harga_raket,
+                            pembayaran.total_pembayaran
+                        FROM 
+                            pembayaran
+                            LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
+                            LEFT JOIN pemesanan_lapangan ON pembayaran.id_pemesanan = pemesanan_lapangan.id_pemesanan
+                            LEFT JOIN pemesanan_raket ON pembayaran.id_raket = pemesanan_raket.id_raket
+                            LEFT JOIN lapangan ON pemesanan_lapangan.id_lapangan = lapangan.id_lapangan
+                            LEFT JOIN kategori ON lapangan.id_kategori = kategori.id_kategori
+
+                    ");
+                    while ($d = mysqli_fetch_array($data)) {
+
                     ?>
-            
-                    <tr>
-                        <td><?php echo $no; ?></td>
-                        <td><?php echo $d['nama_pengguna']; ?></td>
-                        <td><?php echo $d['nama_lapangan']; ?></td>
-                        <td><?php echo $d['nama_kategori']; ?></td>
-                        <td><?php echo $d['harga_kategori']; ?></td>
-                        <td><?php echo $d['durasi']; ?></td>
-                        <td><?php echo $d['tgl_booking']; ?></td>
-                        <td><?php echo $d['jam_booking']; ?></td>
-                        <td><?php echo $d['jml_raket']; ?></td>
-                        <td><?php echo $d['harga_raket']; ?></td>
-                        <td><?php echo $d['metode_pembayaran']; ?></td>
-                        <td><?php echo $d['status_pembayaran']; ?></td>
-                        <td><?php echo $d['bukti_Pembayaran']; ?></td>
-                        <td><?php echo $d['tgl_transfer']; ?></td>
-                        <td><?php echo $d['total_pembayaran']; ?></td>
-                    </tr>
-            
-                    <?php 
+
+                        <tr>
+                            <td><?php echo $no; ?></td>
+                            <td><?php echo $d['nama_pengguna']; ?></td>
+                            <td><?php echo $d['nama_lapangan']; ?></td>
+                            <td><?php echo $d['nama_kategori']; ?></td>
+                            <td><?php echo $d['harga_kategori']; ?></td>
+                            <td><?php echo $d['durasi']; ?></td>
+                            <td><?php echo $d['tgl_booking']; ?></td>
+                            <td><?php echo $d['jam_booking']; ?></td>
+                            <td><?php echo $d['jml_raket']; ?></td>
+                            <td><?php echo $d['harga_raket']; ?></td>
+                            <td><?php echo $d['metode_pembayaran']; ?></td>
+                            <td><?php echo $d['status_pembayaran']; ?></td>
+                            <td><?php echo $d['bukti_bayar']; ?></td>
+                            <td><?php echo $d['tgl_transfer']; ?></td>
+                            <td><?php echo $d['total_harga_lapangan']; ?></td>
+                            <td><?php echo $d['total_harga_raket']; ?></td>
+                            <td><?php echo $d['total_pembayaran']; ?></td>
+                        </tr>
+
+                    <?php
                         $no++;
-                        }
+                    }
                     ?>
                 </tbody>
             </table>
