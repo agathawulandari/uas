@@ -45,13 +45,6 @@
                     value="<?php echo $pemesanan ['id_pemesanan']; ?>" required>
             </div>
             <div class="col-12">
-                <label for="id_raket" class="form-label">Pemesanan Raket</label>
-                <input type="text" class="form-control" id="id_raket" name="id_raket" placeholder="" value="0" required
-                    disabled>
-                <input type="hidden" class="form-control" id="id_raket" name="id_raket" placeholder="" value="0"
-                    required>
-            </div>
-            <div class="col-12">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder=""
                     value="<?php echo $username ['username']; ?>" required disabled>
