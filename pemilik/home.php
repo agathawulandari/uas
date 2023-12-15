@@ -43,9 +43,9 @@
             </div>
             <div class="card-body">
                 <?php 
-                    // $anggota = mysqli_query($koneksi, "SELECT * FROM p_anggota ");
-                    // $tanggota = mysqli_num_rows($anggota);
-                    // echo '<h1>'. $tanggota .'</h1>';
+                    $anggota = mysqli_query($koneksi, "SELECT * FROM lapangan ");
+                    $tanggota = mysqli_num_rows($anggota);
+                    echo '<h1>'. $tanggota .'</h1>';
                 ?>
             </div>
             <div class="card-footer">
@@ -56,17 +56,17 @@
     <div class="col">
         <div class="card bg-info text-dark">
             <div class="card-header">
-                <h3> Data Pemasukan </h3>
+                <h3> Data Pembayaran </h3>
             </div>
             <div class="card-body">
                 <?php 
-                    // $anggota = mysqli_query($koneksi, "SELECT * FROM p_anggota ");
-                    // $tanggota = mysqli_num_rows($anggota);
-                    // echo '<h1>'. $tanggota .'</h1>';
+                    $anggota = mysqli_query($koneksi, "SELECT * FROM pembayaran ");
+                    $tanggota = mysqli_num_rows($anggota);
+                    echo '<h1>'. $tanggota .'</h1>';
                 ?>
             </div>
             <div class="card-footer">
-                <a href="?page=data-pemasukan" class="btn btn-link text-dark">Detail</a>
+                <a href="?page=data-pembayaran" class="btn btn-link text-dark">Detail</a>
             </div>
         </div>        
     </div>

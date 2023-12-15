@@ -13,7 +13,7 @@
         <h2 class="text-center mb-5">Tambah Pesanan</h2>
         <div class="col-md-8">
             <form action="data-pemesanan/proses-pesanan.php" method="post">
-                <div class="mb-2" required>
+                <!-- <div class="mb-2" required>
                     <label>
                         <input type="radio" name="pilihanakun" value="Ada" onclick="showSelect()"> Punya Akun
                     </label>
@@ -27,15 +27,15 @@
                     <select name="id_pengguna" class="form-control">
                         <option disabled selected>Pilih Pengguna</option>
                             <?php 
-                                $data1 = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE tipe_akses = 3");
-                                while($d1 = mysqli_fetch_array($data1)){
+                                // $data1 = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE tipe_akses = 3");
+                                // while($d1 = mysqli_fetch_array($data1)){
                             ?>
                         <option value="<?= $d1['id_pengguna']?>"><?= $d1['nama_pengguna'];?> | <?= $d1['username']?></option>
-                        <?php }?>
+                        <?php ?>
                     </select>
-                </div>
+                </div> -->
                 
-                <div id="input_pengguna" class="visually-hidden mb-2">
+                <div id="input_pengguna" class="mb-2">
                     <div class="mb-2">
                         <label for="nama_pengguna">Nama Pengguna :</label>
                         <input type="text" name="id_pengguna_input" class="form-control" placeholder="Isikan nama">

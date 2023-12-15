@@ -32,6 +32,7 @@
                 <th>Harga Kategori</th>
                 <th>Total Harga</th>
                 <th>Status</th>
+                <th>Pembayaran</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -73,6 +74,7 @@
                 <td><?= $tabel['jam_habis'] ?></td>
                 <td><?= $tabel['harga_kategori']?></td>
                 <td><?= $tabel['total_harga']?></td>
+                <td></td>
                 <td></td>
                 <td class="text-center"><a href="?page=perbarui-pesanan&pesanan=<?php echo $tabel['id_pemesanan']?>" class="btn btn-sm btn-warning">Perbarui</a></a></td>
             </tr>
