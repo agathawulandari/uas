@@ -139,7 +139,7 @@
                                 <a class="nav-link" href="?page=data-pesanan">Data Pemesanan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=data-barang">Data Barang</a>
+                                <a class="nav-link" href="?page=data-pembayaran">Data Pembayaran</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=data-pengguna">Data Pengguna</a>
@@ -157,29 +157,56 @@
         <main role="main">
                 <div class="">
                         <?php 
-                            $page = isset($_GET['page']) ? $_GET['page'] : 'default';
-
-                            $pages = [
-                                'akun' => 'akun.php',
-                                'data-pengguna' => 'data-pengguna/data-pengguna.php',
-                                'tambah-pengguna' => 'data-pengguna/tambah-pengguna.php',
-                                'perbarui-pengguna' => 'data-pengguna/perbarui-pengguna.php',
-                                'hapus-pengguna' => 'data-pengguna/hapus-pengguna.php',
-                                'data-pesanan' => 'data-pemesanan/data-pesanan.php',
-                                'tambah-pesanan' => 'data-pemesanan/tambah-pesanan.php',
-                                'perbarui-pesanan' => 'data-pemesanan/perbarui-pesanan.php',
-                                'hapus-pesanan' => 'data-pengguna/hapus-pemesanan.php',
-                                'jenis-lapangan' => 'data-pemesanan/jenis-lapangan.php',
-                                'lapangan' => 'data-pemesanan/nomor-lapangan.php',
-                                'data-barang' => 'data-barang/data-barang.php',
-                                'jadwal' => 'data-pemesanan/jadwal-tipe.php',
-                                'jadwal-lap' => 'data-pemesanan/jadwal-lap.php',
-                                'logout' => '../umum/logout.php',
-                                'default' => 'home.php',
-                            ];
-
-                            include(isset($pages[$page]) ? $pages[$page] : $pages['default']);
-                        ?>
+                        if (isset($_GET['page'])) {
+                            switch ($_GET['page']) {
+                                case 'akun':
+                                    include('akun.php');
+                                break;
+                                case 'data-pengguna':
+                                    include('data-pengguna/data-pengguna.php');
+                                break;
+                                case 'tambah-pengguna':
+                                    include('data-pengguna/tambah-pengguna.php');
+                                break;
+                                case 'perbarui-pengguna':
+                                    include('data-pengguna/perbarui-pengguna.php');
+                                break;
+                                case 'hapus-pengguna':
+                                    include('data-pengguna/hapus-pengguna.php');
+                                break;
+                                case 'data-pembayaran':
+                                    include('data-pembayaran/data-pembayaran.php');
+                                break;
+                                case 'data-pesanan':
+                                    include('data-pemesanan/data-pesanan.php');
+                                break;
+                                case 'tambah-pesanan':
+                                    include('data-pemesanan/tambah-pesanan.php');
+                                break;
+                                case 'perbarui-pesanan':
+                                    include('data-pemesanan/perbarui-pesanan.php');
+                                break;
+                                case 'jenis-lapangan':
+                                    include('data-pemesanan/jenis-lapangan.php');
+                                break;
+                                case 'lapangan':
+                                    include('data-pemesanan/nomor-lapangan.php');
+                                break;
+                                case 'jadwal':
+                                    include('data-pemesanan/jadwal-tipe.php');
+                                break;
+                                case 'jadwal-lap':
+                                    include('data-pemesanan/jadwal-lap.php');
+                                break;
+                                case 'logout':
+                                    include('../umum/logout.php');
+                                break;      
+                                default:
+                                    include('home.php');
+                                break;
+                            }
+                        }
+                    ?>
                 </div>
             </main>
         <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

@@ -5,15 +5,8 @@ include("../../koneksi.php");
 
 if (isset($_POST["tambah_pesanan"])) {
 
-    // Untuk menyimpan dari radio button
-    $pilihanakun = $_POST["pilihanakun"];
-    if ($pilihanakun == "Ada") {
-        $id_pengguna = $_POST["id_pengguna"];
-    } else {
-        // Jika "Tidak Punya Akun", ambil data dari input
-        $id_pengguna = $_POST["id_pengguna_input"];
-    }
-
+    $id_pengguna = $_POST["id_pengguna_input"];
+    
     $id_lapangan = $_POST["id_lapangan"]??NULL;
     $tanggal_booking = $_POST["tanggal_booking"]??NULL;
     $jam_booking = $_POST["jam_booking"]??NULL; 
@@ -26,24 +19,20 @@ if (isset($_POST["tambah_pesanan"])) {
     $habis_waktu = $mulai_waktu + (intval($durasi) * 3600);
     $habis = date('H:i:s', $habis_waktu);    
 
+    // menghitung total harga
     $total = intval($durasi) * $harga_lapangan;
 
-    $timezone = new DateTimeZone('Asia/Jakarta');
-    $date_time_Obj = date_create('now', $timezone);
-    $date_time = $date_time_Obj->format('Y-m-d H:i:s');
+    // id_pemesanan otomatis
+    $query_lapangan = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pemesanan, 2)) AS max_id FROM pemesanan_lapangan");
+    $pemesanan = mysqli_fetch_assoc($query_lapangan);
+    $pemesanan_lapangan = $pemesanan['max_id'] + 1;
+    $id_pemesanan = 'PL' . str_pad($pemesanan_lapangan, 3, '0', STR_PAD_LEFT);
 
-        // Ambil nomor faktur terakhir dari tabel pemesanan_lapangan
-        $query = "SELECT MAX(id_pemesanan) as max_id FROM pemesanan_lapangan";
-        $result = mysqli_query($koneksi, $query);
-        $row = mysqli_fetch_assoc($result);
 
-        // Ekstrak angka dari nomor faktur terakhir
-        $last_id = $row['max_id'];
-        $last_number = intval(substr($last_id, 2)); // Mengambil angka setelah "PL"
-
-        // Buat nomor faktur baru
-        $new_number = $last_number + 1;
-        $new_id = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT); // Menghasilkan format "PL001"
+    // data pembayaran
+    $metode = "Cash";
+    $status = "Lunas";
+    $bukti_bayar = "-";
         
         $query = "INSERT INTO pemesanan_lapangan (
                 id_pemesanan, 
@@ -66,11 +55,33 @@ if (isset($_POST["tambah_pesanan"])) {
                 '$durasi',
                 '$habis',
                 '$total',
-                '$date_time')";
+                NOW())";
+
         $result = mysqli_query($koneksi, $query);
 
         // Check if the query was successful
         if ($result !== false) {
+            $pembayaran = "INSERT INTO pembayaran (
+                    id_pembayaran,
+                    id_pengguna,
+                    id_pemesanan,
+                    metode_pembayaran,
+                    status_pembayaran,
+                    bukti_bayar,
+                    created_at,
+                    total_pembayaran)
+                VALUES (
+                    '',
+                    '$id_pengguna',
+                    '$new_id',
+                    '$metode',
+                    '$status',  
+                    '$bukti_bayar',
+                    NOW(),
+                    '$total')
+            ";
+
+            $bayar = mysqli_query($koneksi, $pembayaran);
             header('location:../index.php?page=data-pesanan');
             exit();
         } else {
