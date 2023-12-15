@@ -46,7 +46,7 @@ if (isset($_POST["tambah_pesanan"])) {
                 total_harga,
                 created_at) 
             VALUES (
-                '$new_id', 
+                '$id_pemesanan', 
                 '$id_kategori', 
                 '$id_lapangan', 
                 '$id_pengguna',
@@ -73,7 +73,7 @@ if (isset($_POST["tambah_pesanan"])) {
                 VALUES (
                     '',
                     '$id_pengguna',
-                    '$new_id',
+                    '$id_pemesanan',
                     '$metode',
                     '$status',  
                     '$bukti_bayar',
