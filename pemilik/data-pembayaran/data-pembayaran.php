@@ -54,7 +54,8 @@
                                     pembayaran.bukti_bayar,
                                     pembayaran.created_at,
                                     pemesanan_lapangan.total_harga,
-                                    pembayaran.total_pembayaran
+                                    pembayaran.total_pembayaran,
+                                    pembayaran.id_pengguna
                                 FROM 
                                     pembayaran
                                     LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
@@ -79,7 +80,8 @@
                                     pembayaran.bukti_bayar,
                                     pembayaran.created_at,
                                     pemesanan_lapangan.total_harga,
-                                    pembayaran.total_pembayaran
+                                    pembayaran.total_pembayaran,
+                                    pembayaran.id_pengguna
                                 FROM 
                                     pembayaran
                                     LEFT JOIN pengguna ON pembayaran.id_pengguna = pengguna.id_pengguna
@@ -96,7 +98,7 @@
 
                         <tr>
                             <td><?php echo $no; ?></td>
-                            <td><?php echo $d['nama_pengguna']; ?></td>
+                            <td><?php echo $d['nama_pengguna']?? $d['id_pengguna']?></td>
                             <td><?php echo $d['nama_lapangan']; ?></td>
                             <td><?php echo $d['nama_kategori']; ?></td>
                             <td><?php echo $d['harga_kategori']; ?></td>
