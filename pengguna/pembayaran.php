@@ -65,9 +65,9 @@ if (isset($_SESSION["username"])){
               left join lapangan on lapangan.id_lapangan = pemesanan_lapangan.id_lapangan
               where pemesanan_lapangan.id_pengguna");
          
+         $no = 1;
             while ($d = mysqli_fetch_array($data)) {
                 if ($username ['id_pengguna'] == $d['id_pengguna']) { 
-                        $no = 1;
                         ?>
             <tr>
                 <td><?php echo $no++ ?></td>
