@@ -37,50 +37,61 @@
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <input type="hidden" name="id_pesanan" value="<?php echo $tabel['id_pemesanan'];?>">
-                        <label for="nama_pengguna">Nomor Pesanan   :</label>
-                        <input type="text" name="nama_pesanan" class="form-control" required value="<?php echo $tabel['id_pemesanan']??null;?>" disabled>
+                        <label for="nama_pengguna">Nomor Pesanan :</label>
+                        <input type="text" name="nama_pesanan" class="form-control" required
+                            value="<?php echo $tabel['id_pemesanan']??null;?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="pengguna">Nama Pemesan   :</label>
-                        <input type="text" name="nama_pemesan" class="form-control" required value="<?php echo $tabel['username']??$tabel['id_pengguna'];?>" disabled>
+                        <label for="pengguna">Nama Pemesan :</label>
+                        <input type="text" name="nama_pemesan" class="form-control" required
+                            value="<?php echo $tabel['username']??$tabel['id_pengguna'];?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="lapangan">Lapangan   :</label>
-                        <input type="text" name="nama_lapangan" class="form-control" required value="<?php echo $tabel['nama_lapangan']??null;?>" disabled>
+                        <label for="lapangan">Lapangan :</label>
+                        <input type="text" name="nama_lapangan" class="form-control" required
+                            value="<?php echo $tabel['nama_lapangan']??null;?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="kategori">Kategori   :</label>
-                        <input type="text" name="nama_lapangan" class="form-control" required value="<?php echo $tabel['nama_kategori']??null;?>" disabled>
+                        <label for="kategori">Kategori :</label>
+                        <input type="text" name="nama_lapangan" class="form-control" required
+                            value="<?php echo $tabel['nama_kategori']??null;?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="harga">Harga   :</label>
-                        <input type="text" name="harga_lapangan" class="form-control" required value="Rp <?php echo $tabel['harga_kategori']??'0'?>" disabled>
+                        <label for="harga">Harga :</label>
+                        <input type="text" name="harga_lapangan" class="form-control" required
+                            value="Rp <?php echo $tabel['harga_kategori']??'0'?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="telp">Status   :</label>
-                        <input type="text" name="telp" class="form-control" required value="<?php echo $tabel['telp']??null;?>">
+                        <label for="telp">Status :</label>
+                        <input type="text" name="telp" class="form-control" required
+                            value="<?php echo $tabel['telp']??null;?>">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label for="telp">Tanggal Booking   :</label>
-                        <input type="date" name="tgl_booking" class="form-control" required value="<?php echo $tabel['tgl_booking']??null;?>" disabled>
+                        <label for="telp">Tanggal Booking :</label>
+                        <input type="date" name="tgl_booking" class="form-control" required
+                            value="<?php echo $tabel['tgl_booking']??null;?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="mulai">Jam Booking   :</label>
-                        <input type="time" name="jam_mulai" class="form-control" required value="<?php echo $tabel['jam_booking']??null;?>" disabled>
+                        <label for="mulai">Jam Booking :</label>
+                        <input type="time" name="jam_mulai" class="form-control" required
+                            value="<?php echo $tabel['jam_booking']??null;?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="selesai">Jam Selesai   :</label>
-                        <input type="time" name="jam_selesai" class="form-control" required value="<?php echo $tabel['jam_habis']?>" disabled>
+                        <label for="selesai">Jam Selesai :</label>
+                        <input type="time" name="jam_selesai" class="form-control" required
+                            value="<?php echo $tabel['jam_habis']?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="total">Durasi   :</label>
-                        <input type="text" name="durasi" class="form-control" required value="<?php echo $tabel['durasi']?>" disabled>
+                        <label for="total">Durasi :</label>
+                        <input type="text" name="durasi" class="form-control" required
+                            value="<?php echo $tabel['durasi']?>" disabled>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="total">Total Harga   :</label>
-                        <input type="text" name="total_harga" class="form-control" required value="<?php echo $tabel['total_harga']?>" disabled>
+                        <label for="total">Total Harga :</label>
+                        <input type="text" name="total_harga" class="form-control" required
+                            value="<?php echo $tabel['total_harga']?>" disabled>
                     </div>
                 </div>
             </div>

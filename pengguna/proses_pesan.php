@@ -2,6 +2,8 @@
 include('../koneksi.php');
 
 if (isset($_POST["pesan_lapangan"])) {
+
+
      // untuk pemesanan
     $query_pemesanan = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pemesanan, 2)) AS max_id FROM pemesanan_lapangan");
     $pemesanan_lapangan = mysqli_fetch_assoc($query_pemesanan);
@@ -15,16 +17,39 @@ if (isset($_POST["pesan_lapangan"])) {
     $tanggal = isset($_POST['tanggal']) ? $_POST['tanggal'] : '';
     $jam = isset($_POST['jam']) ? $_POST['jam'] : '';
     $durasi = isset($_POST['durasi']) ? $_POST['durasi'] : '';
+    $harga_lapangan = isset($_POST['harga_kategori']) ? $_POST['harga_kategori'] : '';
     
     // untuk menghitung waktu habis main
-    $mulai_waktu = strtotime($jam_booking);
+    $mulai_waktu = strtotime($jam);
     $habis_waktu = $mulai_waktu + (intval($durasi) * 3600);
-    $habis = date('H:i:s', $habis_waktu);    
+    $habis = date('H:i:s', $habis_waktu);  
+    
+
 
     // menghitung total harga
-    $total = intval($durasi) * $harga_lapangan;
+    $total = intval($durasi) * intval($harga_lapangan);
     
-   $query = "INSERT INTO pemesanan_lapangan (id_pemesanan,id_kategori, id_lapangan, id_pengguna, tgl_booking, jam_booking, durasi) VALUES ('$id_pemesanan','$id_kategori', '$id_lapangan','$id_pengguna', '$tanggal', '$jam', '$durasi')";
+   $query = "INSERT INTO pemesanan_lapangan (
+    id_pemesanan,
+    id_kategori, 
+    id_lapangan, 
+    id_pengguna, 
+    tgl_booking, 
+    jam_booking, 
+    durasi,
+    jam_habis,
+    total_harga,
+    created_at) VALUES (
+    '$id_pemesanan',
+    '$id_kategori', 
+    '$id_lapangan',
+    '$id_pengguna', 
+    '$tanggal', 
+    '$jam', 
+    '$durasi',
+    '$habis',
+    '$total',
+    NOW())";
 
        if ($query==true) {
         echo "sukses, silahkan klik disini <a class='btn btn-primary' href='index.php?page=pembayaran'>Disini</a>";

@@ -52,6 +52,13 @@
                 <input type="hidden" class="form-control" id="id_lapangan" name="id_lapangan"
                     value="<?php echo $lapangan['id_lapangan'] ?>">
             </div>
+            <div class="col-12">
+                <label for="harga" class="form-label">Harga Lapangan</label>
+                <input type="text" class="form-control" id="harga_lapangan" name="harga_lapangan" placeholder=""
+                    value="<?php echo $kategori['harga_kategori'] ?>" required disabled>
+                <input type="hidden" class="form-control" id="harga_kategori" name="harga_lapangan"
+                    value="<?php echo $kategori['harga_kategori'] ?>">
+            </div>
             <hr>
             <div class="col-12">
                 <label for="tanggal" class="form-label">Tanggal</label>

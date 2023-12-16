@@ -44,6 +44,7 @@ if (isset($_SESSION["username"])){
                 <td>Tanggal Booking</td>
                 <td>Jam Booking</td>
                 <td>Durasi</td>
+                <td>Jam Habis</td>
                 <td>Harga</td>
                 <td>Status pembayaran</td>
                 <td colspan="3">Aksi</td>
@@ -54,6 +55,7 @@ if (isset($_SESSION["username"])){
               $data = mysqli_query($koneksi, "SELECT 
               pemesanan_lapangan.*,
               pembayaran.status_pembayaran,
+              pembayaran.total_pembayaran,
               kategori.harga_kategori, 
               kategori.nama_kategori, 
               lapangan.nama_lapangan
@@ -74,7 +76,8 @@ if (isset($_SESSION["username"])){
                 <td><?php echo $d['tgl_booking'] ?></td>
                 <td><?php echo $d['jam_booking'] ?></td>
                 <td><?php echo $d['durasi'] ?></td>
-                <td><?php echo $d['harga_kategori']?></td>
+                <td><?php echo $d['jam_habis'] ?></td>
+                <td><?php echo $d['total_pembayaran']?></td>
                 <td><?php echo $d['status_pembayaran']?></td>
                 <td><a href="?page=bukti_bayar&kategori=<?php echo $d ['id_kategori'] ?>&lapangan=<?php echo $d ['id_lapangan'] ?>&pemesanan=<?php echo $d ['id_pemesanan'] ?>"
                         class="btn btn-sm btn-warning w-100">Bayar</a>
