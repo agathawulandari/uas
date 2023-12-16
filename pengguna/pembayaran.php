@@ -77,7 +77,7 @@ if (isset($_SESSION["username"])){
                 <td><?php echo $d['jam_booking'] ?></td>
                 <td><?php echo $d['durasi'] ?></td>
                 <td><?php echo $d['jam_habis'] ?></td>
-                <td><?php echo $d['total_pembayaran']?></td>
+                <td><?php echo $d['total_harga']?></td>
                 <td><?php echo $d['status_pembayaran']?></td>
                 <td><a href="?page=bukti_bayar&kategori=<?php echo $d ['id_kategori'] ?>&lapangan=<?php echo $d ['id_lapangan'] ?>&pemesanan=<?php echo $d ['id_pemesanan'] ?>"
                         class="btn btn-sm btn-warning w-100">Bayar</a>

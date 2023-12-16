@@ -54,9 +54,9 @@
             </div>
             <div class="col-12">
                 <label for="harga" class="form-label">Harga Lapangan</label>
-                <input type="text" class="form-control" id="harga_lapangan" name="harga_lapangan" placeholder=""
+                <input type="text" class="form-control" id="harga" name="harga" p   laceholder=""
                     value="<?php echo $kategori['harga_kategori'] ?>" required disabled>
-                <input type="hidden" class="form-control" id="harga_kategori" name="harga_lapangan"
+                <input type="hidden" class="form-control" id="harga_kategori" name="harga_kategori"
                     value="<?php echo $kategori['harga_kategori'] ?>">
             </div>
             <hr>
