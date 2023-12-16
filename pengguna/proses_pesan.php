@@ -5,11 +5,13 @@ if (isset($_POST["pesan_lapangan"])) {
 
 
      // untuk pemesanan
-    $query_pemesanan = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pemesanan, 2)) AS max_id FROM pemesanan_lapangan");
-    $pemesanan_lapangan = mysqli_fetch_assoc($query_pemesanan);
-    $d_lapangan = $pemesanan_lapangan['max_id'];
-    $id_pemesanan = 'PL' . str_pad($d_lapangan, 3, '0', STR_PAD_LEFT);
-
+    $query = "SELECT MAX(id_pemesanan) as max_id FROM pemesanan_lapangan";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($result);
+    $last_id = $row['max_id'];
+    $last_number = intval(substr($last_id, 2));
+    $new_number = $last_number + 1;
+    $id_pemesanan = "PL" . str_pad($new_number, 3, "0", STR_PAD_LEFT);
     
     $id_kategori =isset($_POST['id_kategori']) ? $_POST['id_kategori'] : '';
     $id_lapangan = isset($_POST['id_lapangan']) ? $_POST['id_lapangan'] : '';
@@ -63,10 +65,13 @@ if (isset($_POST["pesan_lapangan"])) {
 
 if (isset($_POST['bukti'])) {
      // untuk bayar
-    $query_bayar = mysqli_query($koneksi, "SELECT MAX(SUBSTRING(id_pembayaran, 2)) AS max_id FROM pembayaran");
-    $bayar = mysqli_fetch_assoc($query_bayar);
-    $pembayaran_lapangan = $bayar['max_id'] + 1;
-    $id_pembayaran = 'P' . str_pad($pembayaran_lapangan, 4, '0', STR_PAD_LEFT);
+    $query = "SELECT MAX(id_pembayaran) as max_id FROM pembayaran";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($result);
+    $last_id = $row['max_id'];
+    $last_number = intval(substr($last_id, 2));
+    $new_number = $last_number + 1;
+    $id_pembayaran= "P" . str_pad($new_number, 4, "0", STR_PAD_LEFT);
     
     $id_pemesanan = $_POST['id_pemesanan'];
     $id_pengguna = $_POST['id_pengguna'];
